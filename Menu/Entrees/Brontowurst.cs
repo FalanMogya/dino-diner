@@ -5,7 +5,7 @@ using System.Text;
 /*
  *  Brontowurst.cs
  *  Author: George Widenor
- *  Description: A class made to define the object brontowurst with a price, calories, and a list of ingredients with methods to remove some ingredients from the Brontowurst.
+ *  Description: A class made to define the object Brontowurst with a price, calories, and a list of ingredients with methods to remove some ingredients from the Brontowurst.
  */
 
 namespace Menu.Entrees
@@ -13,14 +13,14 @@ namespace Menu.Entrees
     public class Brontowurst
     {
         /// <summary>
-        /// Private variable that keep track off if the bun, peppers, or onion is want to be added to the brontowurst
+        /// Private variable that keep track of if the bun, peppers, or onion is want to be added to the Brontowurst
         /// </summary>
         private bool bun = true;
         private bool peppers = true;
         private bool onions = true;
 
         /// <summary>
-        /// Public variables that the user can get and set calorie total and price of the brontowurst
+        /// Public variables that the user can get and set calorie total and price of the Brontowurst
         /// </summary>
         public double Price { get; set; }
         public uint Calories { get; set; }
@@ -50,7 +50,7 @@ namespace Menu.Entrees
         }
 
         /// <summary>
-        /// Removes the bun from the list of ingredients
+        /// Removes the bun from the Brontowurst
         /// </summary>
         public void HoldBun()
         {
