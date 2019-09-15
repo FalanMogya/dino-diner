@@ -5,7 +5,7 @@ using System.Text;
 /*
  * PterodactylWings.cs
  * Author: George Widenor
- * Description: A class made to define the object PterodactylWings with a price, calories per nugget, and with a list of ingredients.
+ * Description: A class made to define the object PterodactylWings with a price, calories, and with a list of ingredients.
  */
 
 namespace Menu.Entrees

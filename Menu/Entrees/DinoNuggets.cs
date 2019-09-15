@@ -12,15 +12,15 @@ namespace Menu.Entrees
 {
     public class DinoNuggets
     {
-        /// <summary>
-        /// Private variable that keep track of the number of nuggets in the DinoNuggets
-        /// </summary>
-        private int nuggets = 6;
+		/// <summary>
+		/// Private variable that keep track of the number of nuggets in the DinoNuggets
+		/// </summary>
+		private int nuggets = 6;
 
-        /// <summary>
-        /// Public variables that the user can get and set calorie total and price of the DinoNuggets
-        /// </summary>
-        public double Price { get; set; }
+		/// <summary>
+		/// Public variables that the user can get and set calorie total and price of the DinoNuggets
+		/// </summary>
+		public double Price { get; set; }
         public uint Calories { get; set; }
 
         /// <summary>

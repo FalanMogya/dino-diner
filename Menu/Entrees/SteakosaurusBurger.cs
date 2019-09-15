@@ -5,7 +5,7 @@ using System.Text;
 /*
  * SteakosaurusBurger.cs
  * Author: George Widenor
- * Description: A class made to define the object SteakosaurusBurger with a price, calories per nugget, and with a list of ingredients with methods to help hold/remove ingredients.
+ * Description: A class made to define the object SteakosaurusBurger with a price, calories, and with a list of ingredients with methods to help hold/remove ingredients.
  */
 namespace Menu.Entrees
 {

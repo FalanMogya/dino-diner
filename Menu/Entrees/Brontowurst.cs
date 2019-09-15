@@ -12,17 +12,17 @@ namespace Menu.Entrees
 {
     public class Brontowurst
     {
-        /// <summary>
-        /// Private variable that keep track of if the bun, peppers, or onion is want to be added to the Brontowurst
-        /// </summary>
-        private bool bun = true;
+		/// <summary>
+		/// Private variable that keep track of if the bun, peppers, or onion is want to be added to the Brontowurst
+		/// </summary>
+		private bool bun = true;
         private bool peppers = true;
         private bool onions = true;
 
-        /// <summary>
-        /// Public variables that the user can get and set calorie total and price of the Brontowurst
-        /// </summary>
-        public double Price { get; set; }
+		/// <summary>
+		/// Public variables that the user can get and set calorie total and price of the Brontowurst
+		/// </summary>
+		public double Price { get; set; }
         public uint Calories { get; set; }
 
         /// <summary>
@@ -49,26 +49,26 @@ namespace Menu.Entrees
             this.Calories = 483;
         }
 
-        /// <summary>
-        /// Removes the bun from the Brontowurst
-        /// </summary>
-        public void HoldBun()
+		/// <summary>
+		/// Removes the bun from the Brontowurst
+		/// </summary>
+		public void HoldBun()
         {
             this.bun = false;
         }
 
-        /// <summary>
-        /// Removes the peppers from the Brontowurst
-        /// </summary>
-        public void HoldPeppers()
+		/// <summary>
+		/// Removes the peppers from the Brontowurst
+		/// </summary>
+		public void HoldPeppers()
         {
             this.peppers = false;
         }
 
-        /// <summary>
-        /// Removes the onions from the Brontowurst
-        /// </summary>
-        public void HoldOnion()
+		/// <summary>
+		/// Removes the onions from the Brontowurst
+		/// </summary>
+		public void HoldOnion()
         {
             this.onions = false;
         }
