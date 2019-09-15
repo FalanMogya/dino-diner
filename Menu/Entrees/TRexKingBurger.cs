@@ -7,7 +7,7 @@ using System.Text;
  * Author: George Widenor
  * Description: A class made to define the object TRexKingBurger with a price, calories, and with a list of ingredients with methods to help hold/remove ingredients.
  */
-namespace Menu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
 	public class TRexKingBurger
 	{
@@ -58,7 +58,7 @@ namespace Menu.Entrees
 		/// </summary>
 		public TRexKingBurger()
 		{
-			this.Price = 5.15;
+			this.Price = 8.45;
 			this.Calories = 728;
 		}
 

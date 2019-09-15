@@ -7,7 +7,7 @@ using System.Text;
  * Author: George Widenor
  * Description: A class made to define the object SteakosaurusBurger with a price, calories, and with a list of ingredients with methods to help hold/remove ingredients.
  */
-namespace Menu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
     public class SteakosaurusBurger
     {

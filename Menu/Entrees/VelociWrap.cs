@@ -7,16 +7,16 @@ using System.Text;
  * Author: George Widenor
  * Description: A class made to define the object Veloci-Wrap with a price, calories, and with a list of ingredients with methods to help hold/remove ingredients.
  */
-namespace Menu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
 	public class VelociWrap
 	{
 		/// <summary>
 		/// Private variable that keep track of if the Ceasar Dressing, Lettuce, or Parmesan Cheese is held or add to the Veloci-Wrap
 		/// </summary>
-		private bool dressing = false;
-		private bool lettuce = false;
-		private bool cheese = false;
+		private bool dressing = true;
+		private bool lettuce = true;
+		private bool cheese = true;
 
 		/// <summary>
 		/// Public variables that the user can get and set calorie total and price of the Veloci-Wrap

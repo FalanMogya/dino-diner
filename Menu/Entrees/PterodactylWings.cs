@@ -8,7 +8,7 @@ using System.Text;
  * Description: A class made to define the object PterodactylWings with a price, calories, and with a list of ingredients.
  */
 
-namespace Menu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
     public class PterodactylWings
     {

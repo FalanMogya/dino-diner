@@ -8,7 +8,7 @@ using System.Text;
  *  Description: A class made to define the object Brontowurst with a price, calories, and a list of ingredients with methods to remove some ingredients from the Brontowurst.
  */
 
-namespace Menu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
     public class Brontowurst
     {
@@ -46,7 +46,7 @@ namespace Menu.Entrees
         public Brontowurst()
         {
             this.Price = 5.36;
-            this.Calories = 483;
+            this.Calories = 498;
         }
 
 		/// <summary>
