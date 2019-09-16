@@ -10,6 +10,9 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// Creates a class to define the object Brontowurst
+    /// </summary>
     public class Brontowurst
     {
 		/// <summary>

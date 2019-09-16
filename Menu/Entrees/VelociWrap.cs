@@ -9,7 +9,10 @@ using System.Text;
  */
 namespace DinoDiner.Menu.Entrees
 {
-	public class VelociWrap
+    /// <summary>
+    /// Creates a class to define the object Veloci-Wrap
+    /// </summary>
+    public class VelociWrap
 	{
 		/// <summary>
 		/// Private variable that keep track of if the Ceasar Dressing, Lettuce, or Parmesan Cheese is held or add to the Veloci-Wrap

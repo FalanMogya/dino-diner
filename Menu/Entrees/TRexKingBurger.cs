@@ -9,6 +9,9 @@ using System.Text;
  */
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// Creates a class to define the object TRexKingBurger
+    /// </summary>
 	public class TRexKingBurger
 	{
 		/// <summary>
