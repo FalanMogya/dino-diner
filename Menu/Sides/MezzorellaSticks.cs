@@ -3,33 +3,33 @@ using System.Collections.Generic;
 using System.Text;
 
 /*
- * Fryceritops.cs
+ * MezzorellaSticks.cs
  * Author: George Widenor
- * Description: Defines the side Fryceritops with a price, calories, and a list of ingredients
+ * Description: Defines the side MezzorellaSticks with a price, calories, and a list of ingredients
  */
 
 namespace DinoDiner.Menu.Sides
 {
     /// <summary>
-    /// Defines the side Fryceritops
+    /// Defines the side MezzorellaSticks
     /// </summary>
-    public class Fryceritops : Side
+    public class MezzorellaSticks : Side
     {
         /// <summary>
-        /// Get the list of ingredients for Fryceritops
+        /// Get the list of ingredients for MezzorellaSticks
         /// </summary>
         public override List<string> Ingredients
         {
             get
             {
-                return new List<string>() { "Potato", "Salt", "Vegetable Oil" };
+                return new List<string>() { "Cheese Product", "Breading", "Vegetable Oil" };
             }
         }
 
         private Size size;
 
         /// <summary>
-        /// Gets or sets the size for the Fryceritops
+        /// Gets or sets the size for the MezzorellaSticks
         /// </summary>
         public override Size Size
         {
@@ -40,15 +40,15 @@ namespace DinoDiner.Menu.Sides
                 {
                     case Size.Large:
                         Price = 1.95;
-                        Calories = 480;
+                        Calories = 720;
                         break;
                     case Size.Medium:
                         Price = 1.45;
-                        Calories = 365;
+                        Calories = 610;
                         break;
                     case Size.Small:
                         Price = 0.99;
-                        Calories = 222;
+                        Calories = 540;
                         break;
                 }
             }
@@ -60,12 +60,12 @@ namespace DinoDiner.Menu.Sides
         }
 
         /// <summary>
-        /// Sets the appropriate price and calories for the Fryceritops
+        /// Sets the appropriate price and calories for the MezzorellaSticks
         /// </summary>
-        public Fryceritops()
+        public MezzorellaSticks()
         {
             this.Price = 0.99;
-            this.Calories = 222;
+            this.Calories = 540;
         }
     }
 }

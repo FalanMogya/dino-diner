@@ -9,7 +9,7 @@
 namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
-    /// Creates a class to define the object PrehistoricPBJ
+    /// Define the object PrehistoricPBJ
     /// </summary>
     public class PrehistoricPBJ
     {

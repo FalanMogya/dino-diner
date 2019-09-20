@@ -11,27 +11,18 @@ using System.Text;
 namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
-    /// Creates a class to define the object Brontowurst
+    /// Define the object Brontowurst
     /// </summary>
-    public class Brontowurst
+    public class Brontowurst : Entree
     {
-		/// <summary>
-		/// Private variable that keep track of if the bun, peppers, or onion is want to be added to the Brontowurst
-		/// </summary>
 		private bool bun = true;
         private bool peppers = true;
         private bool onions = true;
 
-		/// <summary>
-		/// Public variables that the user can get and set calorie total and price of the Brontowurst
-		/// </summary>
-		public double Price { get; set; }
-        public uint Calories { get; set; }
-
         /// <summary>
         /// Displays the list of ingredients excluding the ingredients the customer wants held
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

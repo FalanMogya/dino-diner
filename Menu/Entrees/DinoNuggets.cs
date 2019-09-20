@@ -5,25 +5,25 @@ using System.Text;
 /*
  * DinoNuggets.cs
  * Author: George Widenor
- * Description: A class made to define the object DinoNuggets with a price, calories per nugget, and methods to add nuggets.
+ * Description: Defines the object DinoNuggets with a price, calories per nugget, list of ingredients, and methods to add nuggets.
  */
 
 namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
-    /// Creates a class to define the object DinoNuggets
+    /// Define the object DinoNuggets
     /// </summary>
     public class DinoNuggets
     {
 		/// <summary>
-		/// Public variables that the user can get and set number of nuggets, calorie total and price of the DinoNuggets
+		/// Get and set number of nuggets, calorie total and price of the DinoNuggets
 		/// </summary>
 		public double Price { get; set; }
         public uint Calories { get; set; }
 		public int Nuggets { get; set; }
 
         /// <summary>
-        /// Displays the list of ingredients counting the nuggets that have been added
+        /// Gets the list of ingredients counting the nuggets that have been added
         /// </summary>
         public List<string> Ingredients
         {
@@ -39,7 +39,7 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
-        /// The constructor that sets the appropriate price and calories
+        /// Sets the appropriate price and calories for the DinoNuggets
         /// </summary>
         public DinoNuggets()
         {

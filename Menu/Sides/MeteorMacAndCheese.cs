@@ -3,33 +3,33 @@ using System.Collections.Generic;
 using System.Text;
 
 /*
- * Fryceritops.cs
+ * MeteorMacAndCheese.cs
  * Author: George Widenor
- * Description: Defines the side Fryceritops with a price, calories, and a list of ingredients
+ * Description: Defines the side MeteorMacAndCheese with a price, calories, and a list of ingredients
  */
 
 namespace DinoDiner.Menu.Sides
 {
     /// <summary>
-    /// Defines the side Fryceritops
+    /// Defines the side MeteorMacAndCheese
     /// </summary>
-    public class Fryceritops : Side
+    public class MeteorMacAndCheese : Side
     {
         /// <summary>
-        /// Get the list of ingredients for Fryceritops
+        /// Get the list of ingredients for MeteorMacAndCheese
         /// </summary>
         public override List<string> Ingredients
         {
             get
             {
-                return new List<string>() { "Potato", "Salt", "Vegetable Oil" };
+                return new List<string>() { "Macaroni Noodles", "Cheese Product", "Pork Sausage" };
             }
         }
 
         private Size size;
 
         /// <summary>
-        /// Gets or sets the size for the Fryceritops
+        /// Gets or sets the size for the MeteorMacAndCheese
         /// </summary>
         public override Size Size
         {
@@ -40,15 +40,15 @@ namespace DinoDiner.Menu.Sides
                 {
                     case Size.Large:
                         Price = 1.95;
-                        Calories = 480;
+                        Calories = 520;
                         break;
                     case Size.Medium:
                         Price = 1.45;
-                        Calories = 365;
+                        Calories = 490;
                         break;
                     case Size.Small:
                         Price = 0.99;
-                        Calories = 222;
+                        Calories = 420;
                         break;
                 }
             }
@@ -60,12 +60,12 @@ namespace DinoDiner.Menu.Sides
         }
 
         /// <summary>
-        /// Sets the appropriate price and calories for the Fryceritops
+        /// Sets the appropriate price and calories for the MeteorMacAndCheese
         /// </summary>
-        public Fryceritops()
+        public MeteorMacAndCheese()
         {
             this.Price = 0.99;
-            this.Calories = 222;
+            this.Calories = 420;
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Text;
 namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
-    /// Creates a class to define the object Veloci-Wrap
+    /// Define the object Veloci-Wrap
     /// </summary>
     public class VelociWrap
 	{
