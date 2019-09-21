@@ -3,7 +3,7 @@
 /*
  *  PrehistoricPBJ.cs
  *  Author: George Widenor
- *  Description: A class made to define the object PrehistoricPBJ with a price, calories, and a list of ingredients with methods to remove some ingredients from the PrehistoricPBJ.
+ *  Description: Define the object PrehistoricPBJ with a price, calories, and a list of ingredients with options to hold/remove ingredients.
  */
 
 namespace DinoDiner.Menu.Entrees
@@ -11,24 +11,15 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Define the object PrehistoricPBJ
     /// </summary>
-    public class PrehistoricPBJ
+    public class PrehistoricPBJ : Entree
     {
-        /// <summary>
-		/// Private variable that keep track of if the peanut butter or jelly is held or add to the PrehistoricPBJ
-		/// </summary>
         private bool peanutButter = true;
         private bool jelly = true;
 
         /// <summary>
-		/// Public variables that the user can get and set calorie total and price of the PrehistoricPBJ
-		/// </summary>
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        /// <summary>
-        /// Displays the list of ingredients excluding the ingredients the customer wants held
+        /// Gets the list of ingredients excluding the ingredients the customer wants held for PrehistoricPBJ
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
@@ -40,7 +31,7 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
-        /// The constructor that sets the appropriate price and calories
+        /// Sets the appropriate price and calories for the PrehistoricPBJ
         /// </summary>
         public PrehistoricPBJ()
         {

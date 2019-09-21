@@ -5,18 +5,15 @@ using System.Text;
 /*
  * TRexKingBurger.cs
  * Author: George Widenor
- * Description: A class made to define the object TRexKingBurger with a price, calories, and with a list of ingredients with methods to help hold/remove ingredients.
+ * Description: Define the object TRexKingBurger with a price, calories, and with a list of ingredients with options to hold/remove ingredients.
  */
 namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
     /// Define the object TRexKingBurger
     /// </summary>
-	public class TRexKingBurger
+	public class TRexKingBurger : Entree
 	{
-		/// <summary>
-		/// Private variable that keep track of if the bun, lettuce, tomato, onion, pickle, ketchup, mustard, or mayo is held or add to the TRexKingBurger
-		/// </summary>
 		private bool bun = true;
 		private bool lettuce = true;
 		private bool tomato = true;
@@ -27,15 +24,9 @@ namespace DinoDiner.Menu.Entrees
 		private bool mayo = true;
 
 		/// <summary>
-		/// Public variables that the user can get and set calorie total and price of the TRexKingBurger
+		/// Gets the list of ingredients excluding the ingredients the customer wants held for the TRexKingBurger
 		/// </summary>
-		public double Price { get; set; }
-		public uint Calories { get; set; }
-
-		/// <summary>
-		/// Displays the list of ingredients excluding the ingredients the customer wants held
-		/// </summary>
-		public List<string> Ingredients
+		public override List<string> Ingredients
 		{
 			get
 			{
@@ -57,7 +48,7 @@ namespace DinoDiner.Menu.Entrees
 		}
 
 		/// <summary>
-		/// The constructor that sets the appropriate price and calories
+		/// Sets the appropriate price and calories for the TRexKingBurger
 		/// </summary>
 		public TRexKingBurger()
 		{

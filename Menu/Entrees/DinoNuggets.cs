@@ -5,7 +5,7 @@ using System.Text;
 /*
  * DinoNuggets.cs
  * Author: George Widenor
- * Description: Defines the object DinoNuggets with a price, calories per nugget, list of ingredients, and methods to add nuggets.
+ * Description: Defines the object DinoNuggets with a price, calories per nugget, list of ingredients, and a option to add nuggets.
  */
 
 namespace DinoDiner.Menu.Entrees
@@ -13,24 +13,19 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Define the object DinoNuggets
     /// </summary>
-    public class DinoNuggets
+    public class DinoNuggets : Entree
     {
-		/// <summary>
-		/// Get and set number of nuggets, calorie total and price of the DinoNuggets
-		/// </summary>
-		public double Price { get; set; }
-        public uint Calories { get; set; }
-		public int Nuggets { get; set; }
+        private int nuggets = 6;
 
         /// <summary>
-        /// Gets the list of ingredients counting the nuggets that have been added
+        /// Gets the list of ingredients counting the nuggets that have been added for the DinoNuggets
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
                 List<string> ingredients = new List<string>();
-                for (int i = 0; i < this.Nuggets; i++)
+                for (int i = 0; i < this.nuggets; i++)
                 {
                     ingredients.Add("Chicken Nugget");
                 }
@@ -45,7 +40,6 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 4.25;
             this.Calories = (59 * 6);
-			this.Nuggets = 6;
         }
 
         /// <summary>
@@ -53,7 +47,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void AddNugget()
         {
-            this.Nuggets += 1;
+            this.nuggets += 1;
             this.Price += .25;
             this.Calories += 59;
         }
