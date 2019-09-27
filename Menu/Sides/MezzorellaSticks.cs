@@ -5,7 +5,7 @@ using System.Text;
 /*
  * MezzorellaSticks.cs
  * Author: George Widenor
- * Description: Defines the side MezzorellaSticks with a price, calories, and a list of ingredients
+ * Description: Defines the side MezzorellaSticks with a price, calories, a ingredients list, and a size
  */
 
 namespace DinoDiner.Menu.Sides
@@ -16,7 +16,7 @@ namespace DinoDiner.Menu.Sides
     public class MezzorellaSticks : Side
     {
         /// <summary>
-        /// Get the list of ingredients for MezzorellaSticks
+        /// Get the ingredients list for MezzorellaSticks
         /// </summary>
         public override List<string> Ingredients
         {

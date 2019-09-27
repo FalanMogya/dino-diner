@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
+/*
+ * Side.cs
+ * Author: George Widenor
+ * Description: The base class to define all side classes
+ */
+
 namespace DinoDiner.Menu.Sides
 {
-
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
-
+    /// <summary>
+    /// Defines the base class side so that all sides have a price, calories, ingredients list, and a size.
+    /// </summary>
     public abstract class Side
     {
         /// <summary>

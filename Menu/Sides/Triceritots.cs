@@ -5,15 +5,18 @@ using System.Text;
 /*
  * Triceritots.cs
  * Author: George Widenor
- * Description: Defines the side Triceritots with a price, calories, and a list of ingredients
+ * Description: Defines the side Triceritots with a price, calories, a ingredients list, and a size
  */
 
 namespace DinoDiner.Menu.Sides
 {
+    /// <summary>
+    /// Defines the side Triceritots
+    /// </summary>
     public class Triceritots : Side
     {
         /// <summary>
-        /// Get the list of ingredients for Triceritots
+        /// Get the ingredients list for Triceritots
         /// </summary>
         public override List<string> Ingredients
         {

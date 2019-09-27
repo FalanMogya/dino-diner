@@ -5,7 +5,7 @@ using System.Text;
 /*
  * TRexKingBurger.cs
  * Author: George Widenor
- * Description: Define the object TRexKingBurger with a price, calories, and with a list of ingredients with options to hold/remove ingredients.
+ * Description: Define the object TRexKingBurger with a price, calories, and with a ingredients list with options to hold/remove ingredients.
  */
 namespace DinoDiner.Menu.Entrees
 {
@@ -23,10 +23,10 @@ namespace DinoDiner.Menu.Entrees
 		private bool mustard = true;
 		private bool mayo = true;
 
-		/// <summary>
-		/// Gets the list of ingredients excluding the ingredients the customer wants held for the TRexKingBurger
-		/// </summary>
-		public override List<string> Ingredients
+        /// <summary>
+        /// Gets the ingredients list excluding the ingredients the customer wants held for the TRexKingBurger
+        /// </summary>
+        public override List<string> Ingredients
 		{
 			get
 			{

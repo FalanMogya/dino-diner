@@ -5,7 +5,7 @@ using System.Text;
 /*
  * VelociWrap.cs
  * Author: George Widenor
- * Description: Define the object Veloci-Wrap with a price, calories, and with a list of ingredients with options to hold/remove ingredients.
+ * Description: Define the object Veloci-Wrap with a price, calories, and with a ingredients list with options to hold/remove ingredients.
  */
 namespace DinoDiner.Menu.Entrees
 {
@@ -18,10 +18,10 @@ namespace DinoDiner.Menu.Entrees
 		private bool lettuce = true;
 		private bool cheese = true;
 
-		/// <summary>
-		/// Gets the list of ingredients excluding the ingredients the customer wants held for the Veloci-Wrap
-		/// </summary>
-		public override List<string> Ingredients
+        /// <summary>
+        /// Gets the ingredients list excluding the ingredients the customer wants held for the Veloci-Wrap
+        /// </summary>
+        public override List<string> Ingredients
 		{
 			get
 			{

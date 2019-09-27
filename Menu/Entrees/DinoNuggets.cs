@@ -5,7 +5,7 @@ using System.Text;
 /*
  * DinoNuggets.cs
  * Author: George Widenor
- * Description: Defines the object DinoNuggets with a price, calories per nugget, list of ingredients, and a option to add nuggets.
+ * Description: Defines the object DinoNuggets with a price, calories per nugget, ingredients list, and a option to add nuggets.
  */
 
 namespace DinoDiner.Menu.Entrees
@@ -18,7 +18,7 @@ namespace DinoDiner.Menu.Entrees
         private int nuggets = 6;
 
         /// <summary>
-        /// Gets the list of ingredients counting the nuggets that have been added for the DinoNuggets
+        /// Gets the ingredients list counting the nuggets that have been added for the DinoNuggets
         /// </summary>
         public override List<string> Ingredients
         {

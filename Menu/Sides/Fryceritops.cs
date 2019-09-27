@@ -5,7 +5,7 @@ using System.Text;
 /*
  * Fryceritops.cs
  * Author: George Widenor
- * Description: Defines the side Fryceritops with a price, calories, and a list of ingredients
+ * Description: Defines the side Fryceritops with a price, calories, a ingredients list, and a size
  */
 
 namespace DinoDiner.Menu.Sides
@@ -16,7 +16,7 @@ namespace DinoDiner.Menu.Sides
     public class Fryceritops : Side
     {
         /// <summary>
-        /// Get the list of ingredients for Fryceritops
+        /// Get the ingredients list for Fryceritops
         /// </summary>
         public override List<string> Ingredients
         {

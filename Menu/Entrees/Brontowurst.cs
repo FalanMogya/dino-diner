@@ -5,7 +5,7 @@ using System.Text;
 /*
  *  Brontowurst.cs
  *  Author: George Widenor
- *  Description: Define the object Brontowurst with a price, calories, and a list of ingredients with options to hold/remove ingredients.
+ *  Description: Define the object Brontowurst with a price, calories, and a ingredients list with options to hold/remove ingredients.
  */
 
 namespace DinoDiner.Menu.Entrees
@@ -20,7 +20,7 @@ namespace DinoDiner.Menu.Entrees
         private bool onions = true;
 
         /// <summary>
-        /// Get the list of ingredients excluding the ingredients the customer wants held for the Brontowurst
+        /// Get the ingredients list excluding the ingredients the customer wants held for the Brontowurst
         /// </summary>
         public override List<string> Ingredients
         {

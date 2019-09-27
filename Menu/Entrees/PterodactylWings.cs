@@ -5,7 +5,7 @@ using System.Text;
 /*
  * PterodactylWings.cs
  * Author: George Widenor
- * Description: Define the object PterodactylWings with a price, calories, and with a list of ingredients.
+ * Description: Define the object PterodactylWings with a price, calories, and with a ingredients list.
  */
 
 namespace DinoDiner.Menu.Entrees
@@ -17,7 +17,7 @@ namespace DinoDiner.Menu.Entrees
     {
 
         /// <summary>
-        /// Gets the list of ingredients for the PterodactylWings
+        /// Gets the ingredients list for the PterodactylWings
         /// </summary>
         public override List<string> Ingredients
         {

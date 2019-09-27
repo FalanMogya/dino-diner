@@ -5,7 +5,7 @@ using System.Text;
 /*
  * MeteorMacAndCheese.cs
  * Author: George Widenor
- * Description: Defines the side MeteorMacAndCheese with a price, calories, and a list of ingredients
+ * Description: Defines the side MeteorMacAndCheese with a price, calories, a ingredients list, and a size
  */
 
 namespace DinoDiner.Menu.Sides
@@ -16,7 +16,7 @@ namespace DinoDiner.Menu.Sides
     public class MeteorMacAndCheese : Side
     {
         /// <summary>
-        /// Get the list of ingredients for MeteorMacAndCheese
+        /// Get the ingredients list for MeteorMacAndCheese
         /// </summary>
         public override List<string> Ingredients
         {
