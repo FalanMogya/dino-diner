@@ -58,6 +58,10 @@ namespace DinoDiner.Menu.Drinks
             {
                 return ice;
             }
+            set
+            {
+                ice = value;
+            }
         }
 
         /// <summary>

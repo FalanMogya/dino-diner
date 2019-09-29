@@ -5,7 +5,7 @@ using System.Text;
 /*
  * Tyrannotea.cs
  * Author: George Widenor
- * Description: 
+ * Description: Defines the drink Tyrannotea with a price, calories, sweetener, lemon, ingredients list, and size 
  */
 
 namespace DinoDiner.Menu.Drinks
@@ -15,10 +15,54 @@ namespace DinoDiner.Menu.Drinks
     /// </summary>
     public class Tyrannotea : Drink
     {
+        private bool sweet = false;
+
         /// <summary>
         /// Gets and sets whether the Tyrannotea will be sweetened
         /// </summary>
-        public bool Sweet { get; set; }
+        public bool Sweet {
+            get
+            {
+                return sweet;
+            }
+            set
+            {
+                sweet = value;
+                switch (size)
+                {
+                    case Size.Large:
+                        if (Sweet)
+                        {
+                            Calories = 64;
+                        }
+                        else
+                        {
+                            Calories = 32;
+                        }
+                        break;
+                    case Size.Medium:
+                        if (Sweet)
+                        {
+                            Calories = 32;
+                        }
+                        else
+                        {
+                            Calories = 16;
+                        }
+                        break;
+                    case Size.Small:
+                        if (Sweet)
+                        {
+                            Calories = 16;
+                        }
+                        else
+                        {
+                            Calories = 8;
+                        }
+                        break;
+                }
+            }
+        }
 
         /// <summary>
         /// Gets and sets whether lemon will be added to the Tyrannotea
@@ -64,7 +108,7 @@ namespace DinoDiner.Menu.Drinks
                         }
                         break;
                     case Size.Medium:
-                        Price = 1.50;
+                        Price = 1.49;
                         if (Sweet)
                         {
                             Calories = 32;
@@ -85,6 +129,16 @@ namespace DinoDiner.Menu.Drinks
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Sets the appropriate price and calories, and makes sure there is no lemon or sweetener initially for the Tyrannotea
+        /// </summary>
+        public Tyrannotea()
+        {
+            this.Price = 0.99;
+            this.Calories = 8;
+            this.Lemon = false;
         }
 
         /// <summary>
