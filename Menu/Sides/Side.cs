@@ -13,7 +13,7 @@ namespace DinoDiner.Menu.Sides
     /// <summary>
     /// Defines the base class side so that all sides have a price, calories, ingredients list, and a size.
     /// </summary>
-    public abstract class Side
+    public abstract class Side : IMenuItem
     {
         /// <summary>
         /// Gets and sets the price

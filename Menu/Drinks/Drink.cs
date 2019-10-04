@@ -13,7 +13,7 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Defines the base class Drink so that all drinks have a price, calories, a ingredients list, a size, Ice, and a method to hold ice.
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IMenuItem
     {
         /// <summary>
         /// Gets and sets the price

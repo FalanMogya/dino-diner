@@ -71,5 +71,13 @@ namespace DinoDiner.Menu.Drinks
             this.Calories = 112;
         }
 
+        /// <summary>
+        /// Gets the name Sodasaurus
+        /// </summary>
+        /// <returns>The name Sodasaurus</returns>
+        public override string ToString()
+        {
+            return "Sodasaurus";
+        }
     }
 }

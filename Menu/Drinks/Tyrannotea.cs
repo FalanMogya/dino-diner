@@ -148,5 +148,14 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Lemon = true;
         }
+
+        /// <summary>
+        /// Gets the name Tyrannotea
+        /// </summary>
+        /// <returns>The name Jurrassic Java</returns>
+        public override string ToString()
+        {
+            return "Jurrassic Java";
+        }
     }
 }
