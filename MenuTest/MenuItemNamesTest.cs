@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using DinoDiner.Menu;
+using DinoDiner.Menu.Drinks;
+using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu.Sides;
 
 namespace MenuTest
 {
@@ -70,11 +73,11 @@ namespace MenuTest
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void FriceritopsToStringShouldGiveNameForSize(Size size)
+        public void FryceritopsToStringShouldGiveNameForSize(Size size)
         {
             Fryceritops ft = new Fryceritops();
             ft.Size = size;
-            Assert.Equal($"{size} Friceritops", ft.ToString());
+            Assert.Equal($"{size} Fryceritops", ft.ToString());
         }
 
         [Theory]
@@ -121,7 +124,7 @@ namespace MenuTest
         [InlineData(Size.Small, true)]
         [InlineData(Size.Medium, true)]
         [InlineData(Size.Large, true)]
-        public void JurrasicJavaToStringShouldGiveNameForSizeAndDecaf(Size size, bool decaf)
+        public void JurassicJavaToStringShouldGiveNameForSizeAndDecaf(Size size, bool decaf)
         {
             JurassicJava java = new JurassicJava();
             java.Size = size;

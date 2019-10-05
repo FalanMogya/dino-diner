@@ -51,5 +51,14 @@ namespace DinoDiner.Menu.Entrees
             this.Price += .25;
             this.Calories += 59;
         }
+
+        /// <summary>
+        /// Gets DinoNuggets
+        /// </summary>
+        /// <returns>Dino-Nuggets</returns>
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
+        }
     }
 }

@@ -72,12 +72,100 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
-        /// Gets the name Sodasaurus
+        /// Gets Sodasaurus with the flavor and size
         /// </summary>
-        /// <returns>The name Sodasaurus</returns>
+        /// <returns>"size" "flavor" Sodasaurus</returns>
         public override string ToString()
         {
-            return "Sodasaurus";
+            switch (this.Flavor)
+            {
+                case SodasaurusFlavor.Cola:
+                    switch (this.Size)
+                    {
+                        case Size.Large:
+                            return "Large Cola Sodasaurus";
+                        case Size.Medium:
+                            return "Medium Cola Sodasaurus";
+                        case Size.Small:
+                            return "Small Cola Sodasaurus";
+                        default:
+                            return "Error";
+                    }
+                case SodasaurusFlavor.Orange:
+                    switch (this.Size)
+                    {
+                        case Size.Large:
+                            return "Large Orange Sodasaurus";
+                        case Size.Medium:
+                            return "Medium Orange Sodasaurus";
+                        case Size.Small:
+                            return "Small Orange Sodasaurus";
+                        default:
+                            return "Error";
+                    }
+                case SodasaurusFlavor.Vanilla:
+                    switch (this.Size)
+                    {
+                        case Size.Large:
+                            return "Large Vanilla Sodasaurus";
+                        case Size.Medium:
+                            return "Medium Vanilla Sodasaurus";
+                        case Size.Small:
+                            return "Small Vanilla Sodasaurus";
+                        default:
+                            return "Error";
+                    }
+                case SodasaurusFlavor.Chocolate:
+                    switch (this.Size)
+                    {
+                        case Size.Large:
+                            return "Large Chocolate Sodasaurus";
+                        case Size.Medium:
+                            return "Medium Chocolate Sodasaurus";
+                        case Size.Small:
+                            return "Small Chocolate Sodasaurus";
+                        default:
+                            return "Error";
+                    }
+                case SodasaurusFlavor.RootBeer:
+                    switch (this.Size)
+                    {
+                        case Size.Large:
+                            return "Large RootBeer Sodasaurus";
+                        case Size.Medium:
+                            return "Medium RootBeer Sodasaurus";
+                        case Size.Small:
+                            return "Small RootBeer Sodasaurus";
+                        default:
+                            return "Error";
+                    }
+                case SodasaurusFlavor.Cherry:
+                    switch (this.Size)
+                    {
+                        case Size.Large:
+                            return "Large Cherry Sodasaurus";
+                        case Size.Medium:
+                            return "Medium Cherry Sodasaurus";
+                        case Size.Small:
+                            return "Small Cherry Sodasaurus";
+                        default:
+                            return "Error";
+                    }
+                case SodasaurusFlavor.Lime:
+                    switch (this.Size)
+                    {
+                        case Size.Large:
+                            return "Large Lime Sodasaurus";
+                        case Size.Medium:
+                            return "Medium Lime Sodasaurus";
+                        case Size.Small:
+                            return "Small Lime Sodasaurus";
+                        default:
+                            return "Error";
+                    }
+                default:
+                    return "Error";
+            }
         }
     }
 }

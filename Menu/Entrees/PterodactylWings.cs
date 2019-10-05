@@ -36,5 +36,14 @@ namespace DinoDiner.Menu.Entrees
             this.Price = 7.21;
             this.Calories = 318;
         }
+
+        /// <summary>
+        /// Gets PterodactylWings
+        /// </summary>
+        /// <returns>Pterodactyl Wings</returns>
+        public override string ToString()
+        {
+            return "Pterodactyl Wings";
+        }
     }
 }

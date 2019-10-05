@@ -79,5 +79,24 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Lemon = true;
         }
+
+        /// <summary>
+        /// Gets TyrannoTea with the size
+        /// </summary>
+        /// <returns>"size" TyrannoTea</returns>
+        public override string ToString()
+        {
+            switch (this.Size)
+            {
+                case Size.Large:
+                    return "Large Water";
+                case Size.Medium:
+                    return "Medium Water";
+                case Size.Small:
+                    return "Small Water";
+                default:
+                    return "Error";
+            }
+        }
     }
 }

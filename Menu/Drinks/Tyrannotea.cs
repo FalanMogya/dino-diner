@@ -150,12 +150,39 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
-        /// Gets the name Tyrannotea
+        /// Gets TyrannoTea with the sweet and size
         /// </summary>
-        /// <returns>The name Jurrassic Java</returns>
+        /// <returns>"sweet" "size" TyrannoTea</returns>
         public override string ToString()
         {
-            return "Jurrassic Java";
+            if (this.Sweet)
+            {
+                switch (this.Size)
+                {
+                    case Size.Large:
+                        return "Large Sweet Tyrannotea";
+                    case Size.Medium:
+                        return "Medium Sweet Tyrannotea";
+                    case Size.Small:
+                        return "Small Sweet Tyrannotea";
+                    default:
+                        return "Error";
+                }
+            }
+            else
+            {
+                switch (this.Size)
+                {
+                    case Size.Large:
+                        return "Large Tyrannotea";
+                    case Size.Medium:
+                        return "Medium Tyrannotea";
+                    case Size.Small:
+                        return "Small Tyrannotea";
+                    default:
+                        return "Error";
+                }
+            }
         }
     }
 }

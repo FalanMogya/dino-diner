@@ -67,5 +67,24 @@ namespace DinoDiner.Menu.Sides
             this.Price = 0.99;
             this.Calories = 540;
         }
+
+        /// <summary>
+        /// Gets MezzorellaSticks with the size
+        /// </summary>
+        /// <returns>"size" Mezzorella Sticks</returns>
+        public override string ToString()
+        {
+            switch (this.Size)
+            {
+                case Size.Large:
+                    return "Large Mezzorella Sticks";
+                case Size.Medium:
+                    return "Medium Mezzorella Sticks";
+                case Size.Small:
+                    return "Small Mezzorella Sticks";
+                default:
+                    return "Error";
+            }
+        }
     }
 }

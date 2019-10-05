@@ -7,27 +7,32 @@ using DinoDiner.Menu.Sides;
 
 namespace DinoDiner.Menu
 {
-    public class CretaceousCombo
-    {
-        public Entree Entree { get; set; }
-        public Side Side { get; set; }
-        public Drink Drink { get; set; }
-
-        private Size size = Size.Small;
-
-        public Size Size {
-            get
-            {
-                return size;
-            }
-            set
-            {
-                size = value;
-                Side.Size = value;
-                Drink.Size = value;
-            }
-        }
-
+   /// <summary>    
+   /// A class representing a combo meal    
+   /// </summary>    
+   public class CretaceousCombo : IMenuItem
+   {
+        // Backing Variables        
+        private Size size; 
+        
+        /// <summary>        
+        /// Gets and sets the entree        
+        /// </summary>        
+        public Entree Entree { get; set; }   
+        
+        /// <summary>        
+        /// Gets and sets the side        
+        /// </summary>        
+        public Side Side { get; set; } = new Fryceritops();    
+        
+        /// <summary>        
+        /// Gets and sets the drink        
+        /// </summary>        
+        public Drink Drink { get; set; } = new Sodasaurus(); 
+        
+        /// <summary>        
+        /// Gets the price of the combo        
+        /// </summary>        
         public double Price
         {
             get
@@ -36,6 +41,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>        
+        /// Gets the calories of the combo        
+        /// </summary>        
         public uint Calories
         {
             get
@@ -43,7 +51,24 @@ namespace DinoDiner.Menu
                 return Entree.Calories + Side.Calories + Drink.Calories;
             }
         }
-
+        
+        /// <summary>        
+        /// Gets or sets the size of the combo        
+        /// </summary>        
+        public Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                Drink.Size = value;
+                Side.Size = value;
+            }
+        }
+        
+        /// <summary>        
+        /// Gets the list of ingredients for the combo        
+        /// </summary>        
         public List<string> Ingredients
         {
             get
@@ -54,20 +79,20 @@ namespace DinoDiner.Menu
                 ingredients.AddRange(Drink.Ingredients);
                 return ingredients;
             }
+        } 
+        
+        /// <summary>        
+        /// Constructs a new combo with the specified entree        
+        /// </summary>        
+        /// <param name="entree">The entree to use</param>        
+        public CretaceousCombo(Entree entree)
+        {
+            this.Entree = entree;
         }
 
         public override string ToString()
         {
-            return $"";
-        }
-
-        private CretaceousCombo() { }
-
-        public CretaceousCombo(Entree entree)
-        {
-            Entree = entree;
-            //Side = new Fryceritops();
-            //Drink = new Sodasaurus();
+            return Entree.ToString() + " Combo";
         }
     }
 }

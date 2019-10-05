@@ -67,5 +67,24 @@ namespace DinoDiner.Menu.Sides
             this.Price = 0.99;
             this.Calories = 420;
         }
+
+        /// <summary>
+        /// Gets MeteorMacAndCheese with the size
+        /// </summary>
+        /// <returns>"size" Meteor Mac and Cheese</returns>
+        public override string ToString()
+        {
+            switch (this.Size)
+            {
+                case Size.Large:
+                    return "Large Meteor Mac and Cheese";
+                case Size.Medium:
+                    return "Medium Meteor Mac and Cheese";
+                case Size.Small:
+                    return "Small Meteor Mac and Cheese";
+                default:
+                    return "Error";
+            }
+        }
     }
 }

@@ -1,32 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 /*
- * JurrasicJava.cs
+ * JurassicJava.cs
  * Author: George Widenor
- * Description: Defines the drink JurrasicJava with a price, calories, room for cream, decaf, ingredients list, size, and ice
+ * Description: Defines the drink JurassicJava with a price, calories, room for cream, decaf, ingredients list, size, and ice
  */
 
 namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
-    /// Defines the drink JurrasicJava
+    /// Defines the drink JurassicJava
     /// </summary>
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink
     {
         /// <summary>
-        /// Gets or sets whether the JurrasicJava will have room for cream
+        /// Gets or sets whether the JurassicJava will have room for cream
         /// </summary>
         public bool RoomForCream { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the JurrasicJava will be decaf
+        /// Gets or sets whether the JurassicJava will be decaf
         /// </summary>
         public bool Decaf { get; set; }
 
         /// <summary>
-        /// Gets the ingredients list for JurrasicJava
+        /// Gets the ingredients list for JurassicJava
         /// </summary>
         public override List<string> Ingredients
         {
@@ -37,7 +35,7 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
-        /// Gets and set the size for the JurrasicJava
+        /// Gets and set the size for the JurassicJava
         /// </summary>
         public override Size Size
         {
@@ -67,9 +65,9 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
-        /// Sets the appropriate price and calories, and make sure there is no ice, no room for cream, and it's not decaf initially for the JurrassicJava
+        /// Sets the appropriate price and calories, and make sure there is no ice, no room for cream, and it's not decaf initially for the JurassicJava
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             this.Price = 0.49;
             this.Calories = 2;
@@ -79,7 +77,7 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
-        /// Leaves room for cream for the JurrassicJava
+        /// Leaves room for cream for the JurassicJava
         /// </summary>
         public void LeaveRoomForCream()
         {
@@ -87,7 +85,7 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
-        /// Adds Ice to the JurrassicJava
+        /// Adds Ice to the JurassicJava
         /// </summary>
         public void AddIce()
         {
@@ -95,12 +93,39 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
-        /// Gets the name Jurrassic Java
+        /// Gets Jurrassic Java with the decaf and size
         /// </summary>
-        /// <returns>The name Jurrassic Java</returns>
+        /// <returns>"decaf" "size" Jurassic Java</returns>
         public override string ToString()
         {
-            return "Jurrassic Java";
+            if (this.Decaf)
+            {
+                switch (this.Size)
+                {
+                    case Size.Large:
+                        return "Large Decaf Jurassic Java";
+                    case Size.Medium:
+                        return "Medium Decaf Jurassic Java";
+                    case Size.Small:
+                        return "Small Decaf Jurassic Java";
+                    default:
+                        return "Error";
+                }
+            }
+            else
+            {
+                switch (this.Size)
+                {
+                    case Size.Large:
+                        return "Large Jurassic Java";
+                    case Size.Medium:
+                        return "Medium Jurassic Java";
+                    case Size.Small:
+                        return "Small Jurassic Java";
+                    default:
+                        return "Error";
+                }
+            }
         }
     }
 }

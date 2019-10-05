@@ -67,5 +67,24 @@ namespace DinoDiner.Menu.Sides
             this.Price = 0.99;
             this.Calories = 222;
         }
+
+        /// <summary>
+        /// Gets Fryceritops with the size
+        /// </summary>
+        /// <returns>"size" Fryceritops</returns>
+        public override string ToString()
+        {
+            switch (this.Size)
+            {
+                case Size.Large:
+                    return "Large Fryceritops";
+                case Size.Medium:
+                    return "Medium Fryceritops";
+                case Size.Small:
+                    return "Small Fryceritops";
+                default:
+                    return "Error";
+            }
+        }
     }
 }
