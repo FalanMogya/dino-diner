@@ -17,9 +17,45 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Click="SelectCombo" Grid.Row="0" Grid.Column="0">Combos</Button>
-        <Button Click="SelectEntree" Grid.Row="0" Grid.Column="1">Entrees</Button>
-        <Button Click="SelectDrink" Grid.Row="1" Grid.Column="0">Drinks</Button>
-        <Button Click="SelectSide" Grid.Row="1" Grid.Column="1">Sides</Button>
+        <Button Click="SelectCombo" Grid.Row="0" Grid.Column="0">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-06.png"/>
+            </Button.Background>
+            <DockPanel Height="200">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Combos
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Click="SelectEntree" Grid.Row="0" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-05.png"/>
+            </Button.Background>
+            <DockPanel Height="200">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Entrees
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Click="SelectDrink" Grid.Row="1" Grid.Column="0">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-14.png"/>
+            </Button.Background>
+            <DockPanel Height="200">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Drinks
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Click="SelectSide" Grid.Row="1" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-08.png"/>
+            </Button.Background>
+            <DockPanel Height="200">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Sides
+                </TextBlock>
+            </DockPanel>
+        </Button>
     </Grid>
 </Page>

@@ -8,18 +8,74 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Drink Selection">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.Column="0">Jurassic Java</Button>
-        <Button Grid.Row="0" Grid.Column="1">Sodasaurus</Button>
-        <Button Grid.Row="1" Grid.Column="0">Tyrannotea</Button>
-        <Button Grid.Row="1" Grid.Column="1">Water</Button>
-    </Grid>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/DinoDiner-14.png" Stretch="Uniform"/>
+                </Button.Background>
+                <StackPanel Height="110">
+                    <TextBlock TextAlignment="Center" Height="45">
+                    Drinks
+                    </TextBlock>
+                    <TextBlock>
+                    Sodasaurus
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="1">
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/DinoDiner-12.png" Stretch="Uniform"/>
+                </Button.Background>
+                <StackPanel>
+                    <TextBlock>
+                    Tyrannotea
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="2">
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/DinoDiner-13.png" Stretch="Uniform"/>
+                </Button.Background>
+                <StackPanel>
+                    <TextBlock>
+                    Jurrasic Java
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="3">
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/DinoDiner-15.png" Stretch="Uniform"/>
+                </Button.Background>
+                <StackPanel>
+                    <TextBlock>
+                    Water
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0">Small</Button>
+            <Button Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Height ="80" TextAlignment="Center">
+                    Size
+                    </TextBlock>
+                    <TextBlock Height="100" >Medium</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="2">Large</Button>
+        </Grid>
+    </StackPanel>
 </Page>

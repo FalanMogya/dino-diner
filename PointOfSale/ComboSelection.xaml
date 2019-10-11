@@ -8,19 +8,86 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Combo Selection">
 
-    <WrapPanel>
-        <WrapPanel.Resources>
-            <Style TargetType="Button">
-                <Setter Property="Width" Value="180"/>
-                <Setter Property="Height" Value="140"/>
-            </Style>
-        </WrapPanel.Resources>
-        <Button>Brontowurst Combo</Button>
-        <Button>Dino-Nuggets Combo</Button>
-        <Button>Steakosaurus Burger Combo</Button>
-        <Button>T-Rex King Burger Combo</Button>
-        <Button>Pterodactyl Wings Combo</Button>
-        <Button>Prehistoric PB&amp;J Combo</Button>
-        <Button>Veloci-Wrap Combo</Button>
-    </WrapPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Click ="CustomizeCombo" Grid.Row="0" Grid.Column="0">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-01.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Brontowurst Combo
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Click ="CustomizeCombo" Grid.Row="0" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-02.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Dino-Nuggets Combo
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Click ="CustomizeCombo" Grid.Row="0" Grid.Column="2">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-05.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Steakosaurus Burger Combo
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Click ="CustomizeCombo" Grid.Row="1" Grid.Column="0">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-06.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    T-Rex King Burger Combo
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Click ="CustomizeCombo" Grid.Row="1" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-04.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Pterodactyl Wings Combo
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Click ="CustomizeCombo" Grid.Row="1" Grid.Column="2">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-03.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Prehistoric PB&amp;J Combo
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Click ="CustomizeCombo" Grid.Row="2" Grid.Column="0">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-07.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Veloci-Wrap Combo
+                </TextBlock>
+            </DockPanel>
+        </Button>
+    </Grid>
 </Page>

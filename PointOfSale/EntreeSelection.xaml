@@ -8,19 +8,86 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Entree Selection">
 
-    <WrapPanel>
-        <WrapPanel.Resources>
-            <Style TargetType="Button">
-                <Setter Property="Width" Value="180"/>
-                <Setter Property="Height" Value="140"/>
-            </Style>
-        </WrapPanel.Resources>
-        <Button>Brontowurst</Button>
-        <Button>Dino-Nuggets</Button>
-        <Button>Steakosaurus Burger</Button>
-        <Button>T-Rex King Burger</Button>
-        <Button>Pterodactyl Wings</Button>
-        <Button>Prehistoric PB&amp;J</Button>
-        <Button>Veloci-Wrap</Button>
-    </WrapPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Grid.Column="0">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-01.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Brontowurst
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Grid.Row="0" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-02.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Dino-Nuggets
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Grid.Row="0" Grid.Column="2">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-05.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Steakosaurus Burger
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="0">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-06.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    T-Rex King Burger
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-04.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Pterodactyl Wings
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="2">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-03.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Prehistoric PB&amp;J
+                </TextBlock>
+            </DockPanel>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="0">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-07.png"/>
+            </Button.Background>
+            <DockPanel Height="150">
+                <TextBlock DockPanel.Dock="Bottom">
+                    Veloci-Wrap
+                </TextBlock>
+            </DockPanel>
+        </Button>
+    </Grid>
 </Page>
