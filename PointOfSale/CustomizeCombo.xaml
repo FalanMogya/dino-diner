@@ -9,54 +9,57 @@
       Title="Customize Combo">
 
     <StackPanel>
-        <Grid>
+        <Grid Height="225">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Click ="SelectSide" Grid.Column="0">
+            <Button Click ="SelectSide" Grid.Column="0" VerticalContentAlignment="Top" BorderThickness="5">
                 <Button.Background>
                     <ImageBrush ImageSource="Assets/DinoDiner-08.png"/>
                 </Button.Background>
-                <DockPanel Height="200">
-                    <TextBlock DockPanel.Dock="Bottom" TextAlignment="Center">
-                    Fryceritops
+                <StackPanel>
+                    <TextBlock DockPanel.Dock="Bottom" TextAlignment="Center" Height="195">
+                        Sides
                     </TextBlock>
                     <TextBlock DockPanel.Dock="Bottom" TextAlignment="Center">
-                    Sides
+                        Fryceritops
                     </TextBlock>
-                </DockPanel>
+                </StackPanel>
             </Button>
-            <Button Click="SelectDrink" Grid.Column="1">
+            <Button Click="SelectDrink" Grid.Column="1" VerticalContentAlignment="Top" BorderThickness="5">
                 <Button.Background>
                     <ImageBrush ImageSource="Assets/DinoDiner-14.png"/>
                 </Button.Background>
-                <DockPanel Height="200">
-                    <TextBlock DockPanel.Dock="Bottom">
-                    Sodasaurus
-                    </TextBlock>
-                    <TextBlock DockPanel.Dock="Bottom" TextAlignment="Center">
+                <StackPanel>
+                    <TextBlock Height="195">
                     Drinks
                     </TextBlock>
-                </DockPanel>
+                    <TextBlock TextAlignment="Center">
+                    Sodasaurus
+                    </TextBlock>
+                </StackPanel>
             </Button>
         </Grid>
-        <Grid>
+        <Grid Height="225">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Row="1" Grid.Column="0">Small</Button>
-            <Button Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Grid.Column="0">Small</Button>
+            <Button Grid.Column="1" VerticalContentAlignment="Top">
                 <StackPanel>
-                    <TextBlock Height ="80" TextAlignment="Center">
+                    <TextBlock Height ="100" TextAlignment="Center">
                     Size
                     </TextBlock>
-                    <TextBlock Height="100" >Medium</TextBlock>
+                    <TextBlock>Medium</TextBlock>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="1" Grid.Column="2">Large</Button>
+            <Button Grid.Column="2">Large</Button>
         </Grid>
     </StackPanel>
 </Page>

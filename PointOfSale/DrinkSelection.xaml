@@ -10,28 +10,30 @@
 
     <StackPanel>
         <Grid>
+            <TextBlock Background="LightGray" TextAlignment="Center">
+                Drinks
+            </TextBlock>
+        </Grid>
+        <Grid Height="217">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0">
+            <Button Click="FlavorSelect" Grid.Column="0" VerticalContentAlignment="Top">
                 <Button.Background>
-                    <ImageBrush ImageSource="Assets/DinoDiner-14.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="Assets/DinoDiner-14.png"/>
                 </Button.Background>
-                <StackPanel Height="110">
-                    <TextBlock TextAlignment="Center" Height="45">
-                    Drinks
-                    </TextBlock>
+                <StackPanel>
                     <TextBlock>
                     Sodasaurus
                     </TextBlock>
                 </StackPanel>
             </Button>
-            <Button Grid.Column="1">
+            <Button Grid.Column="1" VerticalContentAlignment="Top">
                 <Button.Background>
-                    <ImageBrush ImageSource="Assets/DinoDiner-12.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="Assets/DinoDiner-12.png"/>
                 </Button.Background>
                 <StackPanel>
                     <TextBlock>
@@ -39,9 +41,9 @@
                     </TextBlock>
                 </StackPanel>
             </Button>
-            <Button Grid.Column="2">
+            <Button Grid.Column="2" VerticalContentAlignment="Top">
                 <Button.Background>
-                    <ImageBrush ImageSource="Assets/DinoDiner-13.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="Assets/DinoDiner-13.png"/>
                 </Button.Background>
                 <StackPanel>
                     <TextBlock>
@@ -49,9 +51,9 @@
                     </TextBlock>
                 </StackPanel>
             </Button>
-            <Button Grid.Column="3">
+            <Button Grid.Column="3" VerticalContentAlignment="Top">
                 <Button.Background>
-                    <ImageBrush ImageSource="Assets/DinoDiner-15.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="Assets/DinoDiner-15.png"/>
                 </Button.Background>
                 <StackPanel>
                     <TextBlock>
@@ -60,19 +62,19 @@
                 </StackPanel>
             </Button>
         </Grid>
-        <Grid>
+        <Grid Height="217">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0">Small</Button>
-            <Button Grid.Column="1">
+            <Button Grid.Column="1" VerticalContentAlignment="Top">
                 <StackPanel>
-                    <TextBlock Height ="80" TextAlignment="Center">
+                    <TextBlock Height ="95" TextAlignment="Center">
                     Size
                     </TextBlock>
-                    <TextBlock Height="100" >Medium</TextBlock>
+                    <TextBlock>Medium</TextBlock>
                 </StackPanel>
             </Button>
             <Button Grid.Column="2">Large</Button>

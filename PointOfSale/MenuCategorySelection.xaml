@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="225"/>
         </Grid.RowDefinitions>
         <Button Click="SelectCombo" Grid.Row="0" Grid.Column="0">
             <Button.Background>
