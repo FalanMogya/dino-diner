@@ -19,75 +19,75 @@
             <RowDefinition Height="150"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Click ="CustomizeCombo" Grid.Row="0" Grid.Column="0">
+        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="0" Grid.Column="0">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-01.png"/>
             </Button.Background>
-            <DockPanel Height="150">
-                <TextBlock DockPanel.Dock="Bottom">
+            <StackPanel>
+                <TextBlock>
                     Brontowurst Combo
                 </TextBlock>
-            </DockPanel>
+            </StackPanel>
         </Button>
-        <Button Click ="CustomizeCombo" Grid.Row="0" Grid.Column="1">
+        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="0" Grid.Column="1">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-02.png"/>
             </Button.Background>
-            <DockPanel Height="150">
-                <TextBlock DockPanel.Dock="Bottom">
+            <StackPanel>
+                <TextBlock>
                     Dino-Nuggets Combo
                 </TextBlock>
-            </DockPanel>
+            </StackPanel>
         </Button>
-        <Button Click ="CustomizeCombo" Grid.Row="0" Grid.Column="2">
+        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="0" Grid.Column="2">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-05.png"/>
             </Button.Background>
-            <DockPanel Height="150">
-                <TextBlock DockPanel.Dock="Bottom">
+            <StackPanel>
+                <TextBlock>
                     Steakosaurus Burger Combo
                 </TextBlock>
-            </DockPanel>
+            </StackPanel>
         </Button>
-        <Button Click ="CustomizeCombo" Grid.Row="1" Grid.Column="0">
+        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="1" Grid.Column="0">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-06.png"/>
             </Button.Background>
-            <DockPanel Height="150">
-                <TextBlock DockPanel.Dock="Bottom">
+            <StackPanel>
+                <TextBlock>
                     T-Rex King Burger Combo
                 </TextBlock>
-            </DockPanel>
+            </StackPanel>
         </Button>
-        <Button Click ="CustomizeCombo" Grid.Row="1" Grid.Column="1">
+        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="1" Grid.Column="1">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-04.png"/>
             </Button.Background>
-            <DockPanel Height="150">
-                <TextBlock DockPanel.Dock="Bottom">
+            <StackPanel>
+                <TextBlock>
                     Pterodactyl Wings Combo
                 </TextBlock>
-            </DockPanel>
+            </StackPanel>
         </Button>
-        <Button Click ="CustomizeCombo" Grid.Row="1" Grid.Column="2">
+        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="1" Grid.Column="2">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-03.png"/>
             </Button.Background>
-            <DockPanel Height="150">
-                <TextBlock DockPanel.Dock="Bottom">
+            <StackPanel>
+                <TextBlock>
                     Prehistoric PB&amp;J Combo
                 </TextBlock>
-            </DockPanel>
+            </StackPanel>
         </Button>
-        <Button Click ="CustomizeCombo" Grid.Row="2" Grid.Column="0">
+        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="2" Grid.Column="0">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-07.png"/>
             </Button.Background>
-            <DockPanel Height="150">
-                <TextBlock DockPanel.Dock="Bottom">
+            <StackPanel>
+                <TextBlock>
                     Veloci-Wrap Combo
                 </TextBlock>
-            </DockPanel>
+            </StackPanel>
         </Button>
     </Grid>
 </Page>

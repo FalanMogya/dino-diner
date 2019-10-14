@@ -27,15 +27,15 @@
                     </TextBlock>
                 </StackPanel>
             </Button>
-            <Button Click="SelectDrink" Grid.Column="1" VerticalContentAlignment="Top" BorderThickness="5">
+            <Button Click="SelectDrink" Grid.Column="1" VerticalContentAlignment="Top" BorderThickness="5" HorizontalAlignment="Left" Width="400">
                 <Button.Background>
                     <ImageBrush ImageSource="Assets/DinoDiner-14.png"/>
                 </Button.Background>
                 <StackPanel>
-                    <TextBlock Height="195">
+                    <TextBlock Height="195" TextAlignment="Center">
                     Drinks
                     </TextBlock>
-                    <TextBlock TextAlignment="Center">
+                    <TextBlock>
                     Sodasaurus
                     </TextBlock>
                 </StackPanel>
