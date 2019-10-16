@@ -8,76 +8,75 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Drink Selection">
 
-    <StackPanel>
-        <Grid>
-            <TextBlock Background="LightGray" TextAlignment="Center">
-                Drinks
-            </TextBlock>
-        </Grid>
-        <Grid Height="217">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button Click="FlavorSelect" Grid.Column="0" VerticalContentAlignment="Top">
-                <Button.Background>
-                    <ImageBrush ImageSource="Assets/DinoDiner-14.png"/>
-                </Button.Background>
-                <StackPanel>
-                    <TextBlock>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center">Drink</TextBlock>
+        <Button Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" VerticalContentAlignment="Top">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-14.png"/>
+            </Button.Background>
+            <StackPanel>
+                <TextBlock>
                     Sodasaurus
-                    </TextBlock>
-                </StackPanel>
-            </Button>
-            <Button Grid.Column="1" VerticalContentAlignment="Top">
-                <Button.Background>
-                    <ImageBrush ImageSource="Assets/DinoDiner-12.png"/>
-                </Button.Background>
-                <StackPanel>
-                    <TextBlock>
+                </TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="4" Grid.RowSpan="3" VerticalContentAlignment="Top">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-12.png"/>
+            </Button.Background>
+            <StackPanel>
+                <TextBlock>
                     Tyrannotea
-                    </TextBlock>
-                </StackPanel>
-            </Button>
-            <Button Grid.Column="2" VerticalContentAlignment="Top">
-                <Button.Background>
-                    <ImageBrush ImageSource="Assets/DinoDiner-13.png"/>
-                </Button.Background>
-                <StackPanel>
-                    <TextBlock>
+                </TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="7" Grid.RowSpan="3" VerticalContentAlignment="Top">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-13.png"/>
+            </Button.Background>
+            <StackPanel>
+                <TextBlock>
                     Jurrasic Java
-                    </TextBlock>
-                </StackPanel>
-            </Button>
-            <Button Grid.Column="3" VerticalContentAlignment="Top">
-                <Button.Background>
-                    <ImageBrush ImageSource="Assets/DinoDiner-15.png"/>
-                </Button.Background>
-                <StackPanel>
-                    <TextBlock>
+                </TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="10" Grid.RowSpan="3" VerticalContentAlignment="Top">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-15.png"/>
+            </Button.Background>
+            <StackPanel>
+                <TextBlock>
                     Water
-                    </TextBlock>
-                </StackPanel>
-            </Button>
-        </Grid>
-        <Grid Height="217">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0">Small</Button>
-            <Button Grid.Column="1" VerticalContentAlignment="Top">
-                <StackPanel>
-                    <TextBlock Height ="95" TextAlignment="Center">
-                    Size
-                    </TextBlock>
-                    <TextBlock>Medium</TextBlock>
-                </StackPanel>
-            </Button>
-            <Button Grid.Column="2">Large</Button>
-        </Grid>
-    </StackPanel>
+                </TextBlock>
+            </StackPanel>
+        </Button>
+        <TextBlock Grid.Column="1" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center">Size</TextBlock>
+        <RadioButton Grid.Column="1" Grid.Row="1" Grid.RowSpan="4">Small</RadioButton>
+        <RadioButton Grid.Column="1" Grid.Row="5" Grid.RowSpan="4">Medium</RadioButton>
+        <RadioButton Grid.Column="1" Grid.Row="9" Grid.RowSpan="4">Large</RadioButton>
+        <TextBlock Grid.Column="2" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center">Special</TextBlock>
+        <Button Click="FlavorSelect" Grid.Column="2" Grid.Row="1" Grid.RowSpan="4">Sweet/Decaf/Flavor</Button>
+        <Button Grid.Column="2" Grid.Row="5" Grid.RowSpan="4">Add Lemon</Button>
+        <Button Grid.Column="2" Grid.Row="9" Grid.RowSpan="4">Hold Ice</Button>
+    </Grid>
 </Page>

@@ -8,58 +8,43 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Customize Combo">
 
-    <StackPanel>
-        <Grid Height="225">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button Click ="SelectSide" Grid.Column="0" VerticalContentAlignment="Top" BorderThickness="5">
-                <Button.Background>
-                    <ImageBrush ImageSource="Assets/DinoDiner-08.png"/>
-                </Button.Background>
-                <StackPanel>
-                    <TextBlock DockPanel.Dock="Bottom" TextAlignment="Center" Height="195">
-                        Sides
-                    </TextBlock>
-                    <TextBlock DockPanel.Dock="Bottom" TextAlignment="Center">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center">Side</TextBlock>
+        <Button Click ="SelectSide" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" VerticalContentAlignment="Top" BorderThickness="5">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-08.png"/>
+            </Button.Background>
+            <StackPanel>
+                <TextBlock>
                         Fryceritops
-                    </TextBlock>
-                </StackPanel>
-            </Button>
-            <Button Click="SelectDrink" Grid.Column="1" VerticalContentAlignment="Top" BorderThickness="5" HorizontalAlignment="Left" Width="400">
-                <Button.Background>
-                    <ImageBrush ImageSource="Assets/DinoDiner-14.png"/>
-                </Button.Background>
-                <StackPanel>
-                    <TextBlock Height="195" TextAlignment="Center">
-                    Drinks
-                    </TextBlock>
-                    <TextBlock>
+                </TextBlock>
+            </StackPanel>
+        </Button>
+        <TextBlock Grid.Column="1" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center">Drink</TextBlock>
+        <Button Click="SelectDrink" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" VerticalContentAlignment="Top" BorderThickness="5">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-14.png"/>
+            </Button.Background>
+            <StackPanel>
+                <TextBlock>
                     Sodasaurus
-                    </TextBlock>
-                </StackPanel>
-            </Button>
-        </Grid>
-        <Grid Height="225">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Button Grid.Column="0">Small</Button>
-            <Button Grid.Column="1" VerticalContentAlignment="Top">
-                <StackPanel>
-                    <TextBlock Height ="100" TextAlignment="Center">
-                    Size
-                    </TextBlock>
-                    <TextBlock>Medium</TextBlock>
-                </StackPanel>
-            </Button>
-            <Button Grid.Column="2">Large</Button>
-        </Grid>
-    </StackPanel>
+                </TextBlock>
+            </StackPanel>
+        </Button>
+        <TextBlock Grid.Column="2" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center">Side</TextBlock>
+        <RadioButton Grid.Column="2" Grid.Row="1" >Small</RadioButton>
+        <RadioButton Grid.Column="2" Grid.Row="2" >Medium</RadioButton>
+        <RadioButton Grid.Column="2" Grid.Row="3" >Large</RadioButton>
+    </Grid>
 </Page>

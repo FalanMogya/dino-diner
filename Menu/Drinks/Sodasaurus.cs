@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 /*  
  * Sodasaurus.cs
@@ -13,7 +14,7 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Defines the drink Sodasaurus
     /// </summary>
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets and sets the flavor for the Sodasaurus
@@ -72,100 +73,42 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
-        /// Gets Sodasaurus with the flavor and size
+        /// The PropertyChanged event handler; notifies of canges to the Price,
+        /// Description, and Special properties
         /// </summary>
-        /// <returns>"size" "flavor" Sodasaurus</returns>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helperfunction for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// Returns the drink identity string
+        /// </summary>
+        /// <returns>The drink as a string</returns>
         public override string ToString()
         {
-            switch (this.Flavor)
-            {
-                case SodasaurusFlavor.Cola:
-                    switch (this.Size)
-                    {
-                        case Size.Large:
-                            return "Large Cola Sodasaurus";
-                        case Size.Medium:
-                            return "Medium Cola Sodasaurus";
-                        case Size.Small:
-                            return "Small Cola Sodasaurus";
-                        default:
-                            return "Error";
-                    }
-                case SodasaurusFlavor.Orange:
-                    switch (this.Size)
-                    {
-                        case Size.Large:
-                            return "Large Orange Sodasaurus";
-                        case Size.Medium:
-                            return "Medium Orange Sodasaurus";
-                        case Size.Small:
-                            return "Small Orange Sodasaurus";
-                        default:
-                            return "Error";
-                    }
-                case SodasaurusFlavor.Vanilla:
-                    switch (this.Size)
-                    {
-                        case Size.Large:
-                            return "Large Vanilla Sodasaurus";
-                        case Size.Medium:
-                            return "Medium Vanilla Sodasaurus";
-                        case Size.Small:
-                            return "Small Vanilla Sodasaurus";
-                        default:
-                            return "Error";
-                    }
-                case SodasaurusFlavor.Chocolate:
-                    switch (this.Size)
-                    {
-                        case Size.Large:
-                            return "Large Chocolate Sodasaurus";
-                        case Size.Medium:
-                            return "Medium Chocolate Sodasaurus";
-                        case Size.Small:
-                            return "Small Chocolate Sodasaurus";
-                        default:
-                            return "Error";
-                    }
-                case SodasaurusFlavor.RootBeer:
-                    switch (this.Size)
-                    {
-                        case Size.Large:
-                            return "Large RootBeer Sodasaurus";
-                        case Size.Medium:
-                            return "Medium RootBeer Sodasaurus";
-                        case Size.Small:
-                            return "Small RootBeer Sodasaurus";
-                        default:
-                            return "Error";
-                    }
-                case SodasaurusFlavor.Cherry:
-                    switch (this.Size)
-                    {
-                        case Size.Large:
-                            return "Large Cherry Sodasaurus";
-                        case Size.Medium:
-                            return "Medium Cherry Sodasaurus";
-                        case Size.Small:
-                            return "Small Cherry Sodasaurus";
-                        default:
-                            return "Error";
-                    }
-                case SodasaurusFlavor.Lime:
-                    switch (this.Size)
-                    {
-                        case Size.Large:
-                            return "Large Lime Sodasaurus";
-                        case Size.Medium:
-                            return "Medium Lime Sodasaurus";
-                        case Size.Small:
-                            return "Small Lime Sodasaurus";
-                        default:
-                            return "Error";
-                    }
-                default:
-                    return "Error";
-            }
+            return $"{Size} {Flavor} Sodasaurus";
         }
     }
 }
