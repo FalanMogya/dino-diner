@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Define the object PrehistoricPBJ
     /// </summary>
-    public class PrehistoricPBJ : Entree, INotifyPropertyChanged
+    public class PrehistoricPBJ : Entree, IOrderItem, INotifyPropertyChanged
     {
         // Backing variables
         private bool peanutButter = true;
@@ -28,11 +28,6 @@ namespace DinoDiner.Menu.Entrees
         private void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public string Description
-        {
-            get { return this.ToString(); }
         }
 
         /// <summary>
@@ -93,9 +88,17 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
-        /// Gets PrehistoricPBJ
+        /// Contains the entree's description
         /// </summary>
-        /// <returns>Prehistoric PB&J</returns>
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Returns the entree identity string
+        /// </summary>
+        /// <returns>The entree as a string</returns>
         public override string ToString()
         {
             return "Prehistoric PB&J";

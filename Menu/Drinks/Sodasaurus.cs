@@ -14,8 +14,21 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Defines the drink Sodasaurus
     /// </summary>
-    public class Sodasaurus : Drink, INotifyPropertyChanged
+    public class Sodasaurus : Drink, IOrderItem
     {
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// Gets and sets the flavor for the Sodasaurus
         /// </summary>
@@ -70,36 +83,6 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Price = 1.50;
             this.Calories = 112;
-        }
-
-        /// <summary>
-        /// The PropertyChanged event handler; notifies of canges to the Price,
-        /// Description, and Special properties
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        //Helperfunction for notifying of property changes
-        private void NotifyOfPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public string Description
-        {
-            get { return this.ToString(); }
-        }
-
-        /// <summary>
-        /// Gets any special preparation instructions
-        /// </summary>
-        public string[] Special
-        {
-            get
-            {
-                List<string> special = new List<string>();
-                if (!Ice) special.Add("Hold Ice");
-                return special.ToArray();
-            }
         }
 
         /// <summary>

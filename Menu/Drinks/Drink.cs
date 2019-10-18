@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 /*
  * Drink.cs
@@ -13,8 +14,33 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Defines the base class Drink so that all drinks have a price, calories, a ingredients list, a size, Ice, and a method to hold ice.
     /// </summary>
-    public abstract class Drink : IMenuItem
+    public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of canges to the Price,
+        /// Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Helperfunction for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public virtual string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// Gets and sets the price
         /// </summary>
@@ -65,11 +91,20 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
+        /// Contains the entree's description
+        /// </summary>
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
         /// Removes ice from the drink
         /// </summary>
         public void HoldIce()
         {
             this.ice = false;
+            NotifyOfPropertyChange("Special");
         }
     }
 }
