@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+
 /*
  * Water.cs
  * Author: George Widenor
@@ -12,8 +14,34 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Defines the drink Water
     /// </summary>
-    public class Water : Drink
+    public class Water : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of canges to the Price,
+        /// Description, and Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        // Helperfunction for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                if (Lemon) special.Add("Add Lemon");
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// Gets and sets whether lemon will be added to the Water
         /// </summary>
@@ -59,6 +87,8 @@ namespace DinoDiner.Menu.Drinks
                         Calories = 0;
                         break;
                 }
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Description");
             }
         }
 
@@ -78,6 +108,8 @@ namespace DinoDiner.Menu.Drinks
         public void AddLemon()
         {
             this.Lemon = true;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -86,17 +118,7 @@ namespace DinoDiner.Menu.Drinks
         /// <returns>"size" TyrannoTea</returns>
         public override string ToString()
         {
-            switch (this.Size)
-            {
-                case Size.Large:
-                    return "Large Water";
-                case Size.Medium:
-                    return "Medium Water";
-                case Size.Small:
-                    return "Small Water";
-                default:
-                    return "Error";
-            }
+            return $"{Size} Water";
         }
     }
 }

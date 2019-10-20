@@ -24,7 +24,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
-        //Helperfunction for notifying of property changes
+        // Helperfunction for notifying of property changes
         private void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -33,7 +33,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Gets any special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
@@ -85,14 +85,6 @@ namespace DinoDiner.Menu.Entrees
             this.jelly = false;
             NotifyOfPropertyChange("Special");
             NotifyOfPropertyChange("Ingredients");
-        }
-
-        /// <summary>
-        /// Contains the entree's description
-        /// </summary>
-        public string Description
-        {
-            get { return this.ToString(); }
         }
 
         /// <summary>

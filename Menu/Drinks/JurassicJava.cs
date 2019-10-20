@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 /*
  * JurassicJava.cs
@@ -11,17 +12,56 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Defines the drink JurassicJava
     /// </summary>
-    public class JurassicJava : Drink
+    public class JurassicJava : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of canges to the Price,
+        /// Description, and Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        // Helperfunction for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Ice) special.Add("Add Ice");
+                if (RoomForCream) special.Add("Room For Cream");
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// Gets or sets whether the JurassicJava will have room for cream
         /// </summary>
         public bool RoomForCream { get; set; }
 
+        private bool decaf;
+
         /// <summary>
         /// Gets or sets whether the JurassicJava will be decaf
         /// </summary>
-        public bool Decaf { get; set; }
+        public bool Decaf
+        {
+            get
+            {
+                return decaf;
+            }
+            set
+            {
+                decaf = value;
+                NotifyOfPropertyChange("Description");
+            }
+        }
 
         /// <summary>
         /// Gets the ingredients list for JurassicJava
@@ -61,6 +101,8 @@ namespace DinoDiner.Menu.Drinks
                         Calories = 2;
                         break;
                 }
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Description");
             }
         }
 
@@ -82,6 +124,7 @@ namespace DinoDiner.Menu.Drinks
         public void LeaveRoomForCream()
         {
             this.RoomForCream = true;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -90,41 +133,22 @@ namespace DinoDiner.Menu.Drinks
         public void AddIce()
         {
             this.Ice = true;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
-        /// Gets Jurrassic Java with the decaf and size
+        /// Returns the drink identity string
         /// </summary>
-        /// <returns>"decaf" "size" Jurassic Java</returns>
+        /// <returns>The drink as a string</returns>
         public override string ToString()
         {
             if (this.Decaf)
             {
-                switch (this.Size)
-                {
-                    case Size.Large:
-                        return "Large Decaf Jurassic Java";
-                    case Size.Medium:
-                        return "Medium Decaf Jurassic Java";
-                    case Size.Small:
-                        return "Small Decaf Jurassic Java";
-                    default:
-                        return "Error";
-                }
+                return $"{Size} Decaf Jurrassic Java";
             }
             else
             {
-                switch (this.Size)
-                {
-                    case Size.Large:
-                        return "Large Jurassic Java";
-                    case Size.Medium:
-                        return "Medium Jurassic Java";
-                    case Size.Small:
-                        return "Small Jurassic Java";
-                    default:
-                        return "Error";
-                }
+                return $"{Size} Jurrassic Java";
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 /*
  * TRexKingBurger.cs
@@ -12,8 +13,9 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Define the object TRexKingBurger
     /// </summary>
-	public class TRexKingBurger : Entree
+	public class TRexKingBurger : Entree, IOrderItem, INotifyPropertyChanged
 	{
+        // Backing Variables
 		private bool bun = true;
 		private bool lettuce = true;
 		private bool tomato = true;
@@ -22,6 +24,38 @@ namespace DinoDiner.Menu.Entrees
 		private bool ketchup = true;
 		private bool mustard = true;
 		private bool mayo = true;
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of canges to the Price,
+        /// Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Helperfunction for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!bun) special.Add("Hold Bun");
+                if (!lettuce) special.Add("Hold Lettuce");
+                if (!tomato) special.Add("Hold Tomato");
+                if (!onion) special.Add("Hold Onion");
+                if (!pickle) special.Add("Hold Pickle");
+                if (!ketchup) special.Add("Hold Ketchup");
+                if (!mustard) special.Add("Hold Mustard");
+                if (!mayo) special.Add("Hold Mayo");
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// Gets the ingredients list excluding the ingredients the customer wants held for the TRexKingBurger
@@ -62,7 +96,9 @@ namespace DinoDiner.Menu.Entrees
 		public void HoldBun()
 		{
 			this.bun = false;
-		}
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
+        }
 
 		/// <summary>
 		/// Removes the lettuce from the TRexKingBurger
@@ -70,7 +106,9 @@ namespace DinoDiner.Menu.Entrees
 		public void HoldLettuce()
 		{
 			this.lettuce = false;
-		}
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
+        }
 
 		/// <summary>
 		/// Removes the tomato from the TRexKingBurger
@@ -78,7 +116,9 @@ namespace DinoDiner.Menu.Entrees
 		public void HoldTomato()
 		{
 			this.tomato = false;
-		}
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
+        }
 
 		/// <summary>
 		/// Removes the onion from the TRexKingBurger
@@ -86,7 +126,9 @@ namespace DinoDiner.Menu.Entrees
 		public void HoldOnion()
 		{
 			this.onion = false;
-		}
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
+        }
 
 		
 		/// <summary>
@@ -95,7 +137,9 @@ namespace DinoDiner.Menu.Entrees
 		public void HoldPickle()
 		{
 			this.pickle = false;
-		}
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
+        }
 
 		/// <summary>
 		/// Removes the ketchup from the TRexKingBurger
@@ -103,7 +147,9 @@ namespace DinoDiner.Menu.Entrees
 		public void HoldKetchup()
 		{
 			this.ketchup = false;
-		}
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
+        }
 
 		/// <summary>
 		/// Removes the mustard from the TRexKingBurger
@@ -111,7 +157,9 @@ namespace DinoDiner.Menu.Entrees
 		public void HoldMustard()
 		{
 			this.mustard = false;
-		}
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
+        }
 
 		/// <summary>
 		/// Removes the mayo from the TRexKingBurger
@@ -119,12 +167,22 @@ namespace DinoDiner.Menu.Entrees
 		public void HoldMayo()
 		{
 			this.mayo = false;
-		}
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
+        }
 
         /// <summary>
-        /// Gets TRexKingBurger
+        /// Contains the entree's description
         /// </summary>
-        /// <returns>T-Rex King Burger</returns>
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Returns the entree identity string
+        /// </summary>
+        /// <returns>The entree as a string</returns>
         public override string ToString()
         {
             return "T-Rex King Burger";

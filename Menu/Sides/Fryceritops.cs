@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 /*
  * Fryceritops.cs
@@ -13,8 +14,32 @@ namespace DinoDiner.Menu.Sides
     /// <summary>
     /// Defines the side Fryceritops
     /// </summary>
-    public class Fryceritops : Side
+    public class Fryceritops : Side, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of canges to the Price,
+        /// Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Helperfunction for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// Get the ingredients list for Fryceritops
         /// </summary>
@@ -51,6 +76,8 @@ namespace DinoDiner.Menu.Sides
                         Calories = 222;
                         break;
                 }
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Description");
             }
 
             get
@@ -69,22 +96,12 @@ namespace DinoDiner.Menu.Sides
         }
 
         /// <summary>
-        /// Gets Fryceritops with the size
+        /// Returns the side identity string
         /// </summary>
-        /// <returns>"size" Fryceritops</returns>
+        /// <returns>The side as a string</returns>
         public override string ToString()
         {
-            switch (this.Size)
-            {
-                case Size.Large:
-                    return "Large Fryceritops";
-                case Size.Medium:
-                    return "Medium Fryceritops";
-                case Size.Small:
-                    return "Small Fryceritops";
-                default:
-                    return "Error";
-            }
+            return $"{Size} Fryceritops";
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 /*
  * VelociWrap.cs
@@ -14,9 +15,37 @@ namespace DinoDiner.Menu.Entrees
     /// </summary>
     public class VelociWrap : Entree
 	{
+        // Backing variables
 		private bool dressing = true;
 		private bool lettuce = true;
 		private bool cheese = true;
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of canges to the Price,
+        /// Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Helperfunction for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!dressing) special.Add("Hold Dressing");
+                if (!lettuce) special.Add("Hold Lettuce");
+                if (!cheese) special.Add("Hold Cheese");
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// Gets the ingredients list excluding the ingredients the customer wants held for the Veloci-Wrap
@@ -48,7 +77,9 @@ namespace DinoDiner.Menu.Entrees
 		public void HoldDressing()
 		{
 			this.dressing = false;
-		}
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
+        }
 
 		/// <summary>
 		/// Removes the lettuce from the Veloci-Wrap
@@ -56,7 +87,9 @@ namespace DinoDiner.Menu.Entrees
 		public void HoldLettuce()
 		{
 			this.lettuce = false;
-		}
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
+        }
 
 		/// <summary>
 		/// Removes the cheese from the Veloci-Wrap
@@ -64,12 +97,22 @@ namespace DinoDiner.Menu.Entrees
 		public void HoldCheese()
 		{
 			this.cheese = false;
-		}
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
+        }
 
         /// <summary>
-        /// Gets VelociWrap
+        /// Contains the entree's description
         /// </summary>
-        /// <returns>Veloci-Wrap</returns>
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Returns the entree identity string
+        /// </summary>
+        /// <returns>The entree as a string</returns>
         public override string ToString()
         {
             return "Veloci-Wrap";

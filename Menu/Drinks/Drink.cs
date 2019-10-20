@@ -20,7 +20,7 @@ namespace DinoDiner.Menu.Drinks
         /// The PropertyChanged event handler; notifies of canges to the Price,
         /// Description, and Special properties
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public virtual event PropertyChangedEventHandler PropertyChanged;
 
         // Helperfunction for notifying of property changes
         private void NotifyOfPropertyChange(string propertyName)
@@ -31,15 +31,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets any special preparation instructions
         /// </summary>
-        public virtual string[] Special
-        {
-            get
-            {
-                List<string> special = new List<string>();
-                if (!Ice) special.Add("Hold Ice");
-                return special.ToArray();
-            }
-        }
+        public abstract string[] Special { get; }
 
         /// <summary>
         /// Gets and sets the price

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 /*
  * Tyrannotea.cs
@@ -13,9 +14,36 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Defines the drink Tyrannotea
     /// </summary>
-    public class Tyrannotea : Drink
+    public class Tyrannotea : Drink, IOrderItem, INotifyPropertyChanged
     {
+        // Backing variables
         private bool sweet = false;
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of canges to the Price,
+        /// Description, and Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        // Helperfunction for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                if (Lemon) special.Add("Add Lemon");
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// Gets and sets whether the Tyrannotea will be sweetened
@@ -61,6 +89,8 @@ namespace DinoDiner.Menu.Drinks
                         }
                         break;
                 }
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Ingredients");
             }
         }
 
@@ -128,6 +158,8 @@ namespace DinoDiner.Menu.Drinks
                         }
                         break;
                 }
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Description");
             }
         }
 
@@ -147,41 +179,23 @@ namespace DinoDiner.Menu.Drinks
         public void AddLemon()
         {
             this.Lemon = true;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
-        /// Gets TyrannoTea with the sweet and size
+        /// Returns the drink identity string
         /// </summary>
-        /// <returns>"sweet" "size" TyrannoTea</returns>
+        /// <returns>The drink as a string</returns>
         public override string ToString()
         {
             if (this.Sweet)
             {
-                switch (this.Size)
-                {
-                    case Size.Large:
-                        return "Large Sweet Tyrannotea";
-                    case Size.Medium:
-                        return "Medium Sweet Tyrannotea";
-                    case Size.Small:
-                        return "Small Sweet Tyrannotea";
-                    default:
-                        return "Error";
-                }
+                return $"{Size} Sweet Tyrannotea";
             }
             else
             {
-                switch (this.Size)
-                {
-                    case Size.Large:
-                        return "Large Tyrannotea";
-                    case Size.Medium:
-                        return "Medium Tyrannotea";
-                    case Size.Small:
-                        return "Small Tyrannotea";
-                    default:
-                        return "Error";
-                }
+                return $"{Size} Tyrannotea";
             }
         }
     }

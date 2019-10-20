@@ -14,12 +14,24 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Defines the drink Sodasaurus
     /// </summary>
-    public class Sodasaurus : Drink, IOrderItem
+    public class Sodasaurus : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of canges to the Price,
+        /// Description, and Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        // Helperfunction for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Gets any special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
@@ -29,10 +41,23 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        private SodasaurusFlavor flavor;
+
         /// <summary>
         /// Gets and sets the flavor for the Sodasaurus
         /// </summary>
-        public SodasaurusFlavor Flavor { get; set; }
+        public SodasaurusFlavor Flavor
+        {
+            get
+            {
+                return flavor;
+            }
+            set
+            {
+                flavor = value;
+                NotifyOfPropertyChange("Description");
+            }
+        }
 
         /// <summary>
         /// Gets the ingredients list for the Sodasaurus
@@ -73,6 +98,8 @@ namespace DinoDiner.Menu.Drinks
                         Calories = 112;
                         break;
                 }
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Description");
             }
         }
 

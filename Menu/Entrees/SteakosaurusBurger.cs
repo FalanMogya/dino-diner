@@ -1,23 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 /*
  * SteakosaurusBurger.cs
  * Author: George Widenor
  * Description: Define the object SteakosaurusBurger with a price, calories, and with a ingredients list with options to hold/remove ingredients.
  */
+
 namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
     /// Define the object SteakosaurusBurger
     /// </summary>
-    public class SteakosaurusBurger : Entree
+    public class SteakosaurusBurger : Entree, IOrderItem, INotifyPropertyChanged
     {
+        // Backing Variables
         private bool bun = true;
         private bool pickle = true;
         private bool ketchup = true;
         private bool mustard = true;
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of canges to the Price,
+        /// Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Helperfunction for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!bun) special.Add("Hold Bun");
+                if (!pickle) special.Add("Hold Pickle");
+                if (!ketchup) special.Add("Hold Ketchup");
+                if (!mustard) special.Add("Hold Mustard");
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// Gets the ingredients list excluding the ingredients the customer wants held for the SteakosaurusBurger
@@ -50,6 +81,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -58,6 +91,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldPickle()
         {
             this.pickle = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -66,6 +101,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldKetchup()
         {
             this.ketchup = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -74,12 +111,22 @@ namespace DinoDiner.Menu.Entrees
         public void HoldMustard()
         {
             this.mustard = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
-        /// Gets SteakosaurusBurger
+        /// Contains the entree's description
         /// </summary>
-        /// <returns>Steakosaurus Burger</returns>
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Returns the entree identity string
+        /// </summary>
+        /// <returns>The entree as a string</returns>
         public override string ToString()
         {
             return "Steakosaurus Burger";
