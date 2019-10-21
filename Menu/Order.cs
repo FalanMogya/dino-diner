@@ -42,7 +42,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets or Sets the Sales Tax Rate
         /// </summary>
-        public double SalesTaxRate { get; protected set; }
+        public double SalesTaxRate { get; protected set; } = 0.01;
 
         /// <summary>
         /// Gets the Sales Tax Cost
