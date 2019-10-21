@@ -21,17 +21,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets and add items to the collection of items
         /// </summary>
-        public ObservableCollection<IOrderItem> Items
-        {
-            get
-            {
-                return items;
-            }
-            set
-            {
-                items.Add((IOrderItem)value);
-            }
-        }
+        public ObservableCollection<IOrderItem> Items { get; set; } = new ObservableCollection<IOrderItem>();
 
         /// <summary>
         /// Gets the subtotal cost

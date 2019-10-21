@@ -20,6 +20,15 @@ namespace MenuTest
         }
 
         [Fact]
+        public void AddingMultipleItemsShouldBeCorrectSubtotalCost()
+        {
+            Order order = new Order();
+            order.Items.Add(new SteakosaurusBurger());
+            order.Items.Add(new TRexKingBurger());
+            Assert.Equal<double>(13.60, order.SubtotalCost);
+        }
+
+        [Fact]
         public void SubtotalCostShouldNotNegative()
         {
             Order order = new Order();
