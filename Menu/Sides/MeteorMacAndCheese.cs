@@ -101,7 +101,7 @@ namespace DinoDiner.Menu.Sides
         /// <returns>The side as a string</returns>
         public override string ToString()
         {
-            return $"{Size} Meteor Mac & Cheese";
+            return $"{Size} Meteor Mac and Cheese";
         }
     }
 }

@@ -144,11 +144,11 @@ namespace DinoDiner.Menu.Drinks
         {
             if (this.Decaf)
             {
-                return $"{Size} Decaf Jurrassic Java";
+                return $"{Size} Decaf Jurassic Java";
             }
             else
             {
-                return $"{Size} Jurrassic Java";
+                return $"{Size} Jurassic Java";
             }
         }
     }

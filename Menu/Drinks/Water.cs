@@ -113,6 +113,15 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
+        /// Removes ice from the drink
+        /// </summary>
+        public override void HoldIce()
+        {
+            this.Ice = false;
+            NotifyOfPropertyChange("Special");
+        }
+
+        /// <summary>
         /// Gets TyrannoTea with the size
         /// </summary>
         /// <returns>"size" TyrannoTea</returns>

@@ -83,7 +83,7 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
-        /// Contains the entree's description
+        /// Contains the drink's description
         /// </summary>
         public string Description
         {
@@ -93,7 +93,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Removes ice from the drink
         /// </summary>
-        public void HoldIce()
+        public virtual void HoldIce()
         {
             this.ice = false;
             NotifyOfPropertyChange("Special");

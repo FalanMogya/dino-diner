@@ -125,5 +125,105 @@ namespace MenuTest.Drinks
             Assert.Equal<int>(2, ingredients.Count);
         }
 
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.Empty(java.Special);
+        }
+
+        [Fact]
+        public void SpecialShouldAddIce()
+        {
+            JurassicJava java = new JurassicJava();
+            java.AddIce();
+            Assert.Collection<string>(java.Special,
+                item =>
+                {
+                    Assert.Equal("Add Ice", item);
+                }
+            );
+        }
+
+        [Fact]
+        public void SpecialShouldHaveRoomForCream()
+        {
+            JurassicJava java = new JurassicJava();
+            java.LeaveRoomForCream();
+            Assert.Collection<string>(java.Special,
+                item =>
+                {
+                    Assert.Equal("Room For Cream", item);
+                }
+            );
+        }
+
+        [Fact]
+        public void SpecialShouldAddIceAndHaveRoomForCream()
+        {
+            JurassicJava java = new JurassicJava();
+            java.AddIce();
+            java.LeaveRoomForCream();
+            Assert.Collection<string>(java.Special,
+                item =>
+                {
+                    Assert.Equal("Add Ice", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Room For Cream", item);
+                }
+            );
+        }
+
+        [Fact]
+        public void SetSizeShouldNotifyOfPricePropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Price", () =>
+            {
+                java.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void SetSizeShouldNotifyOfDescriptionPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Description", () =>
+            {
+                java.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void DecafShouldNotifyOfDescriptionPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Description", () =>
+            {
+                java.Decaf = true;
+            });
+        }
+
+        [Fact]
+        public void LeaveRoomForCreamShouldNotifyOfSpecialPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Special", () =>
+            {
+                java.LeaveRoomForCream();
+            });
+        }
+
+        [Fact]
+        public void AddIceShouldNotifyOfSpecialPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Special", () =>
+            {
+                java.AddIce();
+            });
+        }
     }
 }

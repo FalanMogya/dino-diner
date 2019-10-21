@@ -13,7 +13,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Define the object Veloci-Wrap
     /// </summary>
-    public class VelociWrap : Entree
+    public class VelociWrap : Entree, IOrderItem, INotifyPropertyChanged
 	{
         // Backing variables
 		private bool dressing = true;
@@ -99,14 +99,6 @@ namespace DinoDiner.Menu.Entrees
 			this.cheese = false;
             NotifyOfPropertyChange("Special");
             NotifyOfPropertyChange("Ingredients");
-        }
-
-        /// <summary>
-        /// Contains the entree's description
-        /// </summary>
-        public string Description
-        {
-            get { return this.ToString(); }
         }
 
         /// <summary>

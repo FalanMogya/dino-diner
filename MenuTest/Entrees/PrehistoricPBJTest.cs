@@ -48,26 +48,6 @@ namespace MenuTest.Entrees
         }
 
         [Fact]
-        public void HoldPeanutButterShouldNotifyOfSpecialPropertyChange()
-        {
-            PrehistoricPBJ pbj = new PrehistoricPBJ();
-            Assert.PropertyChanged(pbj, "Special", () =>
-            {
-                pbj.HoldPeanutButter();
-            });
-        }
-
-        [Fact]
-        public void HoldJellyShouldNotifyOfSpecialPropertyChange()
-        {
-            PrehistoricPBJ pbj = new PrehistoricPBJ();
-            Assert.PropertyChanged(pbj, "Special", () =>
-            {
-                pbj.HoldJelly();
-            });
-        }
-
-        [Fact]
         public void ShouldHaveEmptySpecialListByDefault()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
@@ -82,7 +62,7 @@ namespace MenuTest.Entrees
             Assert.Collection<string>(pbj.Special,
                 item =>
                 {
-                    Assert.Equal("Hold PeanutButter", item);
+                    Assert.Equal("Hold Peanut Butter", item);
                 }
             );
         }
@@ -109,13 +89,33 @@ namespace MenuTest.Entrees
             Assert.Collection<string>(pbj.Special,
                 item =>
                 {
-                    Assert.Equal("Hold PeanutButter", item);
+                    Assert.Equal("Hold Peanut Butter", item);
                 },
                 item =>
                 {
                     Assert.Equal("Hold Jelly", item);
                 }
             );
+        }
+
+        [Fact]
+        public void HoldPeanutButterShouldNotifyOfSpecialPropertyChange()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.PropertyChanged(pbj, "Special", () =>
+            {
+                pbj.HoldPeanutButter();
+            });
+        }
+
+        [Fact]
+        public void HoldJellyShouldNotifyOfSpecialPropertyChange()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.PropertyChanged(pbj, "Special", () =>
+            {
+                pbj.HoldJelly();
+            });
         }
     }
 

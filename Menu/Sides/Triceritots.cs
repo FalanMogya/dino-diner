@@ -14,7 +14,7 @@ namespace DinoDiner.Menu.Sides
     /// <summary>
     /// Defines the side Triceritots
     /// </summary>
-    public class Triceritots : Side
+    public class Triceritots : Side, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// The PropertyChanged event handler; notifies of canges to the Price,

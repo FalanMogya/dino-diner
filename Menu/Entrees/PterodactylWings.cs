@@ -60,15 +60,6 @@ namespace DinoDiner.Menu.Entrees
             this.Price = 7.21;
             this.Calories = 318;
         }
-
-        /// <summary>
-        /// Contains the entree's description
-        /// </summary>
-        public string Description
-        {
-            get { return this.ToString(); }
-        }
-
         /// <summary>
         /// Returns the entree identity string
         /// </summary>

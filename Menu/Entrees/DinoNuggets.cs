@@ -82,14 +82,6 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
-        /// Contains the entree's description
-        /// </summary>
-        public string Description
-        {
-            get { return this.ToString(); }
-        }
-
-        /// <summary>
         /// Returns the entree identity string
         /// </summary>
         /// <returns>The entree as a string</returns>
