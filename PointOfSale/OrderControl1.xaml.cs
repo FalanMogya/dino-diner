@@ -12,17 +12,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
+using DinoDiner.Menu.Sides;
 
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for OrderControl.xaml
+    /// Interaction logic for OrderControl1.xaml
     /// </summary>
-    public partial class OrderControl : Page
+    public partial class OrderControl1 : UserControl
     {
-        public OrderControl()
+        public NavigationService NavigationService { get; set; }
+
+        public OrderControl1()
         {
             InitializeComponent();
+        }
+
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs args)
+        {
+            if (OrderItems.SelectedItem is Side)
+            {
+                NavigationService?.Navigate(new SideSelection());
+            }
         }
     }
 }

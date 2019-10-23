@@ -60,8 +60,8 @@
     <Compile Include="FlavorSelection.xaml.cs">
       <DependentUpon>FlavorSelection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OrderControl.xaml.cs">
-      <DependentUpon>OrderControl.xaml</DependentUpon>
+    <Compile Include="OrderControl1.xaml.cs">
+      <DependentUpon>OrderControl1.xaml</DependentUpon>
     </Compile>
     <Compile Include="SideSelection.xaml.cs">
       <DependentUpon>SideSelection.xaml</DependentUpon>
@@ -111,7 +111,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OrderControl.xaml">
+    <Page Include="OrderControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

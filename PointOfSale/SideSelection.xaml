@@ -28,7 +28,9 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        
         <TextBlock  Grid.Column="0" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center">Side</TextBlock>
+        
         <Button Name="BtnAddFries" Click="AddFries" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" VerticalContentAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-08.png"/>
@@ -39,7 +41,8 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Name="BtnAddMMC" Grid.Column="0" Grid.Row="4" Grid.RowSpan="3" VerticalContentAlignment="Top">
+        
+        <Button Name="BtnAddMMC" Click="AddMMC" Grid.Column="0" Grid.Row="4" Grid.RowSpan="3" VerticalContentAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-09.png"/>
             </Button.Background>
@@ -49,6 +52,7 @@
                 </TextBlock>
             </StackPanel>
         </Button>
+        
         <Button Name="BtnAddMS" Grid.Column="0" Grid.Row="7" Grid.RowSpan="3" VerticalContentAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-10.png"/>
@@ -59,7 +63,8 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Name="BtnAddTots" Grid.Column="0" Grid.Row="10" Grid.RowSpan="3" VerticalContentAlignment="Top">
+        
+        <Button Name="BtnAddTots" Click="AddTots" Grid.Column="0" Grid.Row="10" Grid.RowSpan="3" VerticalContentAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-11.png"/>
             </Button.Background>
@@ -69,9 +74,21 @@
                 </TextBlock>
             </StackPanel>
         </Button>
+        
         <TextBlock Grid.Column="1" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center">Size</TextBlock>
-        <RadioButton Name="BtnPickSmall" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4">Small</RadioButton>
-        <RadioButton Name="BtnPickMedium" Grid.Column="1" Grid.Row="5" Grid.RowSpan="4">Medium</RadioButton>
-        <RadioButton Name="BtnPickLarge" Grid.Column="1" Grid.Row="9" Grid.RowSpan="4">Large</RadioButton>
+        
+        <RadioButton Name="BtnPickSmall" Click="OnMakeSmall" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4">Small</RadioButton>
+        
+        <RadioButton Name="BtnPickMedium" Click="OnMakeMedium" Grid.Column="1" Grid.Row="5" Grid.RowSpan="4">Medium</RadioButton>
+        
+        <RadioButton Name="BtnPickLarge" Click="OnMakeLarge" Grid.Column="1" Grid.Row="9" Grid.RowSpan="4">Large</RadioButton>
+        
+        <ContentControl Content="{Binding Path=Items}">
+            <ContentControl.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}"/>
+                </DataTemplate>
+            </ContentControl.ContentTemplate>
+        </ContentControl>
     </Grid>
 </Page>

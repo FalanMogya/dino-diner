@@ -16,8 +16,6 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Order
     {
-        private ObservableCollection<IOrderItem> items;
-
         /// <summary>
         /// Gets and add items to the collection of items
         /// </summary>

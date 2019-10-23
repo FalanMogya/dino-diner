@@ -8,6 +8,7 @@ using System.ComponentModel;
  */
 
 namespace DinoDiner.Menu.Drinks
+
 {
     /// <summary>
     /// Defines the drink JurassicJava

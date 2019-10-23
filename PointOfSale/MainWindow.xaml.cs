@@ -26,6 +26,7 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
+            OrderControl.NavigationService = OrderUI.NavigationService;
             Order order = (Order)DataContext;
             order.Items.Add(new Fryceritops());
             Tyrannotea tea = new Tyrannotea();
@@ -36,17 +37,20 @@ namespace PointOfSale
 
         public void OnLoadCompleted(object sender, NavigationEventArgs args)
         {
-
+            BindDataContextToPage();
         }
 
         public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
-
+            BindDataContextToPage();
         }
 
-        private void SetFrameDataContext()
+        private void BindDataContextToPage()
         {
-            FrameworkElement conten = OrderInterface.Content as FrameworkElement;
+            if (OrderUI.Content is FrameworkElement element)
+            {
+                element.DataContext = OrderUI.DataContext;
+            }
         }
     }
 }
