@@ -28,28 +28,42 @@ namespace PointOfSale
         public SideSelection()
         {
             InitializeComponent();
+            BtnAddFries.IsEnabled = true;
+            BtnAddMMC.IsEnabled = true;
+            BtnAddMS.IsEnabled = true;
+            BtnAddTots.IsEnabled = true;
+            BtnPickSmall.IsEnabled = false;
+            BtnPickMedium.IsEnabled = false;
+            BtnPickLarge.IsEnabled = false;
         }
 
         public SideSelection(Side side)
         {
             InitializeComponent();
             Side = side;
+            BtnAddFries.IsEnabled = false;
+            BtnAddMMC.IsEnabled = false;
+            BtnAddMS.IsEnabled = false;
+            BtnAddTots.IsEnabled = false;
+            BtnPickSmall.IsEnabled = true;
+            BtnPickMedium.IsEnabled = true;
+            BtnPickLarge.IsEnabled = true;
         }
 
         private void SelectSide(Side side)
         {
             if (DataContext is Order order)
             {
-                order.Items.Add(side);
+                order.Add(side);
                 this.Side = side;
             }
-            //BtnAddFries.IsEnabled = false;
-            //BtnAddMMC.IsEnabled = false;
-            //BtnAddMS.IsEnabled = false;
-            //BtnAddTots.IsEnabled = false;
-            //BtnPickSmall.IsEnabled = true;
-            //BtnPickMedium.IsEnabled = true;
-            //BtnPickLarge.IsEnabled = true;
+            BtnAddFries.IsEnabled = false;
+            BtnAddMMC.IsEnabled = false;
+            BtnAddMS.IsEnabled = false;
+            BtnAddTots.IsEnabled = false;
+            BtnPickSmall.IsEnabled = true;
+            BtnPickMedium.IsEnabled = true;
+            BtnPickLarge.IsEnabled = true;
         }
 
         private void SelectSize(DinoDiner.Menu.Size size)
@@ -58,6 +72,7 @@ namespace PointOfSale
             {
                 this.Side.Size = size;
             }
+            NavigationService?.Navigate(new MenuCategorySelection());
         }
 
         protected void AddFries(object sender, RoutedEventArgs args)

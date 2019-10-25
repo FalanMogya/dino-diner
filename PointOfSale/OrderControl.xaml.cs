@@ -20,20 +20,34 @@ namespace PointOfSale
     /// <summary>
     /// Interaction logic for OrderControl1.xaml
     /// </summary>
-    public partial class OrderControl1 : UserControl
+    public partial class OrderControl : UserControl
     {
         public NavigationService NavigationService { get; set; }
 
-        public OrderControl1()
+        public OrderControl()
         {
             InitializeComponent();
         }
 
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs args)
         {
-            if (OrderItems.SelectedItem is Side)
+            if (OrderItems.SelectedItem is Side side)
             {
-                NavigationService?.Navigate(new SideSelection());
+                NavigationService?.Navigate(new SideSelection(side));
+            }
+        }
+
+        private void OnRemoveItem(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                if (sender is FrameworkElement element)
+                {
+                    if (element.DataContext is IOrderItem item)
+                    {
+                        order.Remove(item);
+                    }
+                }
             }
         }
     }

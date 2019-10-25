@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 /*
  * IOrderItem.cs
@@ -13,7 +14,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Defines the base requirements for all order items
     /// </summary>
-    public interface IOrderItem
+    public interface IOrderItem : INotifyPropertyChanged
     {
         /// <summary>
         /// Gets the Price

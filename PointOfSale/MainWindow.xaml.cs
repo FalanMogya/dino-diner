@@ -27,12 +27,6 @@ namespace PointOfSale
         {
             InitializeComponent();
             OrderControl.NavigationService = OrderUI.NavigationService;
-            Order order = (Order)DataContext;
-            order.Items.Add(new Fryceritops());
-            Tyrannotea tea = new Tyrannotea();
-            tea.Sweet = true;
-            tea.Size = DinoDiner.Menu.Size.Medium;
-            order.Items.Add(tea);
         }
 
         public void OnLoadCompleted(object sender, NavigationEventArgs args)

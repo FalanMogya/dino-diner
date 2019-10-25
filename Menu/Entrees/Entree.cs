@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 /*
  * Entree.cs
@@ -15,6 +16,18 @@ namespace DinoDiner.Menu.Entrees
     /// </summary>
     public abstract class Entree : IMenuItem, IOrderItem
     {
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of canges to the Price,
+        /// Description, and Special properties
+        /// </summary>
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        // Helperfunction for notifying of property changes
+        protected virtual void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Gets any special preparation instructions
         /// </summary>
