@@ -32,7 +32,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Items.Add(entree);
+                order.Add(entree);
             }
         }
 
