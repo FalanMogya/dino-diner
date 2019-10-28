@@ -71,8 +71,8 @@ namespace PointOfSale
             if (Side != null)
             {
                 this.Side.Size = size;
+                NavigationService?.Navigate(new MenuCategorySelection());
             }
-            NavigationService?.Navigate(new MenuCategorySelection());
         }
 
         protected void AddFries(object sender, RoutedEventArgs args)

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DinoDiner.Menu;
 using DinoDiner.Menu.Sides;
+using DinoDiner.Menu.Drinks;
 
 namespace PointOfSale
 {
@@ -34,6 +35,10 @@ namespace PointOfSale
             if (OrderItems.SelectedItem is Side side)
             {
                 NavigationService?.Navigate(new SideSelection(side));
+            }
+            else if (OrderItems.SelectedItem is Drink drink)
+            {
+                NavigationService?.Navigate(new DrinkSelection());
             }
         }
 

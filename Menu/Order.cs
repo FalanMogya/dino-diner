@@ -17,15 +17,31 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Order : INotifyPropertyChanged
     {
+        List<IOrderItem> items = new List<IOrderItem>();
+
         /// <summary>
         /// An event handler for property changes
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        protected void NotifyAllPropertiesChanged()
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
+        }
+
         /// <summary>
         /// Gets and add items to the collection of items
         /// </summary>
-        public ObservableCollection<IOrderItem> Items { get; set; }
+        public IOrderItem[] Items
+        {
+            get
+            {
+                return items.ToArray();
+            }
+        }
 
         /// <summary>
         /// Gets the subtotal cost
@@ -72,27 +88,38 @@ namespace DinoDiner.Menu
 
         public Order()
         {
-            Items = new ObservableCollection<IOrderItem>();
-            Items.CollectionChanged += OnCollectionChanged;
-        }
 
-        private void OnCollectionChanged(object sender, EventArgs args)
+        }
+        
+        private void OnPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
+            NotifyAllPropertiesChanged();
         }
 
+        /// <summary>
+        /// Adds a new item to our order
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(IOrderItem item)
         {
-            item.PropertyChanged += OnCollectionChanged;
-            Items.Add(item);
+            items.Add(item);
+            item.PropertyChanged += OnPropertyChanged;
+            NotifyAllPropertiesChanged();
         }
 
-        public void Remove(IOrderItem item)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public bool Remove(IOrderItem item)
         {
-            item.PropertyChanged += OnCollectionChanged;
-            Items.Remove(item);
+            bool removed = items.Remove(item);
+            if (removed)
+            {
+                NotifyAllPropertiesChanged();
+            }
+            return removed;
         }
     }
 }

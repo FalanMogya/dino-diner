@@ -29,8 +29,10 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        
         <TextBlock Grid.Column="0" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center">Drink</TextBlock>
-        <Button Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" VerticalContentAlignment="Top">
+        
+        <Button Name="BtnAddSoda" Click="AddSoda" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" VerticalContentAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-14.png"/>
             </Button.Background>
@@ -40,7 +42,8 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Column="0" Grid.Row="4" Grid.RowSpan="3" VerticalContentAlignment="Top">
+        
+        <Button Name="BtnAddTea" Click="AddTea" Grid.Column="0" Grid.Row="4" Grid.RowSpan="3" VerticalContentAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-12.png"/>
             </Button.Background>
@@ -50,7 +53,8 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Column="0" Grid.Row="7" Grid.RowSpan="3" VerticalContentAlignment="Top">
+        
+        <Button Name="BtnAddJava" Click="AddJava" Grid.Column="0" Grid.Row="7" Grid.RowSpan="3" VerticalContentAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-13.png"/>
             </Button.Background>
@@ -60,7 +64,8 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Column="0" Grid.Row="10" Grid.RowSpan="3" VerticalContentAlignment="Top">
+        
+        <Button Name="BtnAddWater" Click="AddWater" Grid.Column="0" Grid.Row="10" Grid.RowSpan="3" VerticalContentAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-15.png"/>
             </Button.Background>
@@ -70,13 +75,27 @@
                 </TextBlock>
             </StackPanel>
         </Button>
+        
         <TextBlock Grid.Column="1" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center">Size</TextBlock>
-        <RadioButton Grid.Column="1" Grid.Row="1" Grid.RowSpan="4">Small</RadioButton>
-        <RadioButton Grid.Column="1" Grid.Row="5" Grid.RowSpan="4">Medium</RadioButton>
-        <RadioButton Grid.Column="1" Grid.Row="9" Grid.RowSpan="4">Large</RadioButton>
+        
+        <RadioButton Name="BtnPickSmall" Click="OnMakeSmall" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4">Small</RadioButton>
+        
+        <RadioButton Name="BtnPickMedium" Click="OnMakeMedium" Grid.Column="1" Grid.Row="5" Grid.RowSpan="4">Medium</RadioButton>
+        
+        <RadioButton Name="BtnPickLarge" Click="OnMakeLarge" Grid.Column="1" Grid.Row="9" Grid.RowSpan="4">Large</RadioButton>
+        
         <TextBlock Grid.Column="2" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center">Special</TextBlock>
-        <Button Click="FlavorSelect" Grid.Column="2" Grid.Row="1" Grid.RowSpan="4">Sweet/Decaf/Flavor</Button>
-        <Button Grid.Column="2" Grid.Row="5" Grid.RowSpan="4">Add Lemon</Button>
-        <Button Grid.Column="2" Grid.Row="9" Grid.RowSpan="4">Hold Ice</Button>
+
+        <Button Name="BtnFlavor" Click="FlavorSelect" Grid.Column="2" Grid.Row="1" Grid.RowSpan="4">Flavor</Button>
+        
+        <Button Name="BtnDecaf" Click="MakeDecaf" Grid.Column="2" Grid.Row="1" Grid.RowSpan="4">Decaf</Button>
+        
+        <Button Name="BtnSweet" Click="MakeSweet" Grid.Column="2" Grid.Row="1" Grid.RowSpan="4">Sweet</Button>
+        
+        <Button Name ="BtnLemon" Click="AddLemon"  Grid.Column="2" Grid.Row="5" Grid.RowSpan="4">Add Lemon</Button>
+        
+        <Button Name="BtnHoldIce" Click="HoldIce" Grid.Column="2" Grid.Row="9" Grid.RowSpan="4">Hold Ice</Button>
+
+        <Button Name="BtnAddIce" Click="AddIce" Grid.Column="2" Grid.Row="9" Grid.RowSpan="4">Add Ice</Button>
     </Grid>
 </Page>
