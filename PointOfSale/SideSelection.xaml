@@ -83,7 +83,7 @@
         
         <RadioButton Name="BtnPickLarge" Click="OnMakeLarge" Grid.Column="1" Grid.Row="9" Grid.RowSpan="4">Large</RadioButton>
         
-        <ContentControl Content="{Binding Path=Items}">
+        <ContentControl Content="{Binding Path=Items}" Visibility="Hidden">
             <ContentControl.ContentTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding}"/>

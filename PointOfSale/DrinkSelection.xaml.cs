@@ -46,6 +46,56 @@ namespace PointOfSale
             BtnAddIce.IsEnabled = false;
         }
 
+        public DrinkSelection(Drink drink)
+        {
+            InitializeComponent();
+            Drink = drink;
+            BtnAddSoda.IsEnabled = false;
+            BtnAddTea.IsEnabled = false;
+            BtnAddJava.IsEnabled = false;
+            BtnAddWater.IsEnabled = false;
+            BtnPickSmall.IsEnabled = true;
+            BtnPickMedium.IsEnabled = true;
+            BtnPickLarge.IsEnabled = true;
+            BtnFlavor.Visibility = Visibility.Hidden;
+            BtnFlavor.IsEnabled = false;
+            BtnDecaf.Visibility = Visibility.Hidden;
+            BtnDecaf.IsEnabled = false;
+            BtnSweet.Visibility = Visibility.Hidden;
+            BtnSweet.IsEnabled = false;
+            BtnLemon.IsEnabled = false;
+            BtnHoldIce.IsEnabled = false;
+            BtnAddIce.Visibility = Visibility.Hidden;
+            BtnAddIce.IsEnabled = false;
+
+            if (drink is Sodasaurus)
+            {
+                BtnFlavor.Visibility = Visibility.Visible;
+                BtnFlavor.IsEnabled = true;
+                BtnHoldIce.IsEnabled = true;
+            }
+            else if (drink is Tyrannotea)
+            {
+                BtnSweet.Visibility = Visibility.Visible;
+                BtnSweet.IsEnabled = true;
+                BtnLemon.IsEnabled = true;
+                BtnHoldIce.IsEnabled = true;
+            }
+            else if (drink is JurassicJava)
+            {
+                BtnDecaf.Visibility = Visibility.Visible;
+                BtnDecaf.IsEnabled = true;
+                BtnHoldIce.Visibility = Visibility.Hidden;
+                BtnAddIce.Visibility = Visibility.Visible;
+                BtnAddIce.IsEnabled = true;
+            }
+            else if (drink is Water)
+            {
+                BtnLemon.IsEnabled = true;
+                BtnHoldIce.IsEnabled = true;
+            }
+        }
+
         private void SelectDrink(Drink drink)
         {
             if (DataContext is Order order)
@@ -145,7 +195,7 @@ namespace PointOfSale
         {
             if (Drink is Sodasaurus soda)
             {
-                NavigationService.Navigate(new FlavorSelection());
+                NavigationService.Navigate(new FlavorSelection(soda));
             }
         }
 

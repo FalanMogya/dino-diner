@@ -38,7 +38,7 @@ namespace PointOfSale
             }
             else if (OrderItems.SelectedItem is Drink drink)
             {
-                NavigationService?.Navigate(new DrinkSelection());
+                NavigationService?.Navigate(new DrinkSelection(drink));
             }
         }
 
