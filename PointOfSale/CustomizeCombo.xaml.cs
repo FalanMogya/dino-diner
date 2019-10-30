@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
+using DinoDiner.Menu.Drinks;
+using DinoDiner.Menu.Sides;
 
 namespace PointOfSale
 {
@@ -20,9 +23,24 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
-        public CustomizeCombo()
+        public CretaceousCombo Combo { get; set; }
+
+        public Drink Drink { get; set; } = new Sodasaurus();
+
+        public Side Side { get; set; } = new Fryceritops();
+
+        public CustomizeCombo(CretaceousCombo combo)
         {
             InitializeComponent();
+            Combo = combo;
+        }
+
+        public CustomizeCombo(CretaceousCombo combo, Drink drink, Side side)
+        {
+            InitializeComponent();
+            Combo = combo;
+            Drink = drink;
+            Side = side;
         }
 
         private void SelectDrink(object sender, RoutedEventArgs args)

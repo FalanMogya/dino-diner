@@ -33,45 +33,56 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 order.Add(entree);
-                NavigationService?.Navigate(new MenuCategorySelection());
             }
         }
 
         protected void AddBronto(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new Brontowurst());
+            Brontowurst bw = new Brontowurst();
+            SelectEntree(bw);
+            NavigationService.Navigate(new CustomizeBrontowurst(bw, 0));
         }
 
         protected void AddNuggets(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new DinoNuggets());
+            DinoNuggets dn = new DinoNuggets();
+            SelectEntree(dn);
+            NavigationService.Navigate(new CustomizeDinoNuggets(dn, 0));
         }
 
         protected void AddSteakosaurus(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new SteakosaurusBurger());
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            SelectEntree(sb);
+            NavigationService.Navigate(new CustomizeSteakosaurusBurger(sb, 0));
         }
 
         protected void AddTrex(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new TRexKingBurger());
+            TRexKingBurger trex = new TRexKingBurger();
+            SelectEntree(trex);
+            NavigationService.Navigate(new CustomizeTRexKingBurger(trex, 0));
         }
 
         protected void AddWings(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new PterodactylWings());
+            PterodactylWings pw = new PterodactylWings();
+            SelectEntree(pw);
+            NavigationService.Navigate(new MenuCategorySelection());
         }
 
         protected void AddPBJ(object sender, RoutedEventArgs args)
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
             SelectEntree(pbj);
-            //NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj));
+            NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj, 0));
         }
 
         protected void AddWrap(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new VelociWrap());
+            VelociWrap vw = new VelociWrap();
+            SelectEntree(vw);
+            NavigationService.Navigate(new CustomizeVelociWrap(vw, 0));
         }
     }
 }

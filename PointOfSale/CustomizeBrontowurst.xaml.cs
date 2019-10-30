@@ -18,29 +18,34 @@ using DinoDiner.Menu.Entrees;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeBrontowurst.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeBrontowurst : Page
     {
-        private PrehistoricPBJ pbj;
+        private Brontowurst bw;
 
         private int home;
 
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj, int home)
+        public CustomizeBrontowurst(Brontowurst bw, int home)
         {
             InitializeComponent();
-            this.pbj = pbj;
+            this.bw = bw;
             this.home = home;
         }
 
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void OnHoldBun(object sender, RoutedEventArgs args)
         {
-            pbj.HoldPeanutButter();
+            bw.HoldBun();
         }
 
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
+        private void OnHoldPeppers(object sender, RoutedEventArgs args)
         {
-            pbj.HoldJelly();
+            bw.HoldPeppers();
+        }
+
+        private void OnHoldOnion(object sender, RoutedEventArgs args)
+        {
+            bw.HoldOnion();
         }
 
         private void OnDone(object sender, RoutedEventArgs args)

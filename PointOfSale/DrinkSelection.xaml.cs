@@ -24,6 +24,8 @@ namespace PointOfSale
     {
         public Drink Drink { get; set; }
 
+        private int home = 0;
+
         public DrinkSelection()
         {
             InitializeComponent();
@@ -46,10 +48,11 @@ namespace PointOfSale
             BtnAddIce.IsEnabled = false;
         }
 
-        public DrinkSelection(Drink drink)
+        public DrinkSelection(Drink drink, int home)
         {
             InitializeComponent();
             Drink = drink;
+            this.home = home;
             BtnAddSoda.IsEnabled = false;
             BtnAddTea.IsEnabled = false;
             BtnAddJava.IsEnabled = false;
@@ -110,7 +113,25 @@ namespace PointOfSale
             if (Drink != null)
             {
                 this.Drink.Size = size;
-                NavigationService?.Navigate(new MenuCategorySelection());
+                if (home == 0)
+                {
+                    NavigationService?.Navigate(new MenuCategorySelection());
+                }
+                else if (home == 1)
+                {
+                    if (NavigationService.CanGoBack)
+                    {
+                        NavigationService.GoBack();
+                    }
+                    else
+                    {
+                        NavigationService.Navigate(new MenuCategorySelection());
+                    }
+                }
+                else if (home == 2)
+                {
+                    NavigationService.Navigate(new CustomizeCombo());
+                }
             }
         }
         

@@ -18,29 +18,59 @@ using DinoDiner.Menu.Entrees;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeTRexKingBurger.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeTRexKingBurger : Page
     {
-        private PrehistoricPBJ pbj;
+        private TRexKingBurger trex;
 
         private int home;
 
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj, int home)
+        public CustomizeTRexKingBurger(TRexKingBurger trex, int home)
         {
             InitializeComponent();
-            this.pbj = pbj;
+            this.trex = trex;
             this.home = home;
         }
 
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void OnHoldBun(object sender, RoutedEventArgs args)
         {
-            pbj.HoldPeanutButter();
+            trex.HoldBun();
         }
 
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
+        private void OnHoldLettuce(object sender, RoutedEventArgs args)
         {
-            pbj.HoldJelly();
+            trex.HoldLettuce();
+        }
+
+        private void OnHoldTomato(object sender, RoutedEventArgs args)
+        {
+            trex.HoldTomato();
+        }
+
+        private void OnHoldOnion(object sender, RoutedEventArgs args)
+        {
+            trex.HoldOnion();
+        }
+
+        private void OnHoldPickle(object sender, RoutedEventArgs args)
+        {
+            trex.HoldPickle();
+        }
+
+        private void OnHoldKetchup(object sender, RoutedEventArgs args)
+        {
+            trex.HoldKetchup();
+        }
+
+        private void OnHoldMustard(object sender, RoutedEventArgs args)
+        {
+            trex.HoldMustard();
+        }
+
+        private void OnHoldMayo(object sender, RoutedEventArgs args)
+        {
+            trex.HoldMayo();
         }
 
         private void OnDone(object sender, RoutedEventArgs args)

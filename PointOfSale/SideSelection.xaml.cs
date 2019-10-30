@@ -25,6 +25,8 @@ namespace PointOfSale
 
         public Side Side { get; set; }
 
+        private int home = 0;
+
         public SideSelection()
         {
             InitializeComponent();
@@ -37,10 +39,11 @@ namespace PointOfSale
             BtnPickLarge.IsEnabled = false;
         }
 
-        public SideSelection(Side side)
+        public SideSelection(Side side, int home)
         {
             InitializeComponent();
             Side = side;
+            this.home = home;
             BtnAddFries.IsEnabled = false;
             BtnAddMMC.IsEnabled = false;
             BtnAddMS.IsEnabled = false;
@@ -71,7 +74,25 @@ namespace PointOfSale
             if (Side != null)
             {
                 this.Side.Size = size;
-                NavigationService?.Navigate(new MenuCategorySelection());
+                if (home == 0)
+                {
+                    NavigationService?.Navigate(new MenuCategorySelection());
+                }
+                else if (home == 1)
+                {
+                    if (NavigationService.CanGoBack)
+                    {
+                        NavigationService.GoBack();
+                    }
+                    else
+                    {
+                        NavigationService.Navigate(new MenuCategorySelection());
+                    }
+                }
+                else if (home == 2)
+                {
+                    NavigationService.Navigate(new CustomizeCombo());
+                }
             }
         }
 

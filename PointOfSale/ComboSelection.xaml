@@ -19,7 +19,8 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="0" Grid.Column="0">
+        
+        <Button Click ="AddBrontoCombo" VerticalContentAlignment="Top" Grid.Row="0" Grid.Column="0">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-16.png"/>
             </Button.Background>
@@ -29,7 +30,8 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="0" Grid.Column="1">
+        
+        <Button Click ="AddNuggetsCombo" VerticalContentAlignment="Top" Grid.Row="0" Grid.Column="1">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-17.png"/>
             </Button.Background>
@@ -39,7 +41,8 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="0" Grid.Column="2">
+        
+        <Button Click ="AddSteakosaurusCombo" VerticalContentAlignment="Top" Grid.Row="0" Grid.Column="2">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-20.png"/>
             </Button.Background>
@@ -49,7 +52,8 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="1" Grid.Column="0">
+        
+        <Button Click ="AddTrexCombo" VerticalContentAlignment="Top" Grid.Row="1" Grid.Column="0">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-21.png"/>
             </Button.Background>
@@ -59,7 +63,8 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="1" Grid.Column="1">
+        
+        <Button Click ="AddWingsCombo" VerticalContentAlignment="Top" Grid.Row="1" Grid.Column="1">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-19.png"/>
             </Button.Background>
@@ -69,7 +74,8 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="1" Grid.Column="2">
+        
+        <Button Click ="AddPBJCombo" VerticalContentAlignment="Top" Grid.Row="1" Grid.Column="2">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-18.png"/>
             </Button.Background>
@@ -79,7 +85,8 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Click ="CustomizeCombo" VerticalContentAlignment="Top" Grid.Row="2" Grid.Column="0">
+        
+        <Button Click ="AddWrapCombo" VerticalContentAlignment="Top" Grid.Row="2" Grid.Column="0">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-22.png"/>
             </Button.Background>
