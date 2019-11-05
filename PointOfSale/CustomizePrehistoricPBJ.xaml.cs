@@ -24,6 +24,8 @@ namespace PointOfSale
     {
         private PrehistoricPBJ pbj;
 
+        private CretaceousCombo combo;
+
         private int home;
 
         public CustomizePrehistoricPBJ(PrehistoricPBJ pbj, int home)
@@ -33,36 +35,68 @@ namespace PointOfSale
             this.home = home;
         }
 
+        public CustomizePrehistoricPBJ(CretaceousCombo combo, int home)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.home = home;
+        }
+
         private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
         {
-            pbj.HoldPeanutButter();
+            if (pbj != null)
+            {
+                pbj.HoldPeanutButter();
+            }
+            else if (combo != null)
+            {
+                if (combo.Entree is PrehistoricPBJ pbj)
+                {
+                    pbj.HoldPeanutButter();
+                    combo.Entree = pbj;
+                }
+            }
         }
 
         private void OnHoldJelly(object sender, RoutedEventArgs args)
         {
-            pbj.HoldJelly();
+            if (pbj != null)
+            {
+                pbj.HoldJelly();
+            }
+            else if (combo != null)
+            {
+                if (combo.Entree is PrehistoricPBJ pbj)
+                {
+                    pbj.HoldJelly();
+                    combo.Entree = pbj;
+                }
+            }
         }
 
         private void OnDone(object sender, RoutedEventArgs args)
         {
             if (home == 0)
             {
-                NavigationService.Navigate(new MenuCategorySelection());
+                NavigationService?.Navigate(new MenuCategorySelection());
             }
             else if (home == 1)
             {
                 if (NavigationService.CanGoBack)
                 {
-                    NavigationService.GoBack();
+                    NavigationService?.GoBack();
                 }
                 else
                 {
-                    NavigationService.Navigate(new MenuCategorySelection());
+                    NavigationService?.Navigate(new MenuCategorySelection());
                 }
             }
             else if (home == 2)
             {
-                NavigationService.Navigate(new CustomizeCombo());
+                if (combo != null)
+                {
+                    NavigationService?.Navigate(new CustomizeCombo(combo));
+                }
             }
         }
     }

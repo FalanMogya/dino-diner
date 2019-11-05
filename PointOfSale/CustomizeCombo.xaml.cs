@@ -25,10 +25,6 @@ namespace PointOfSale
     {
         public CretaceousCombo Combo { get; set; }
 
-        public Drink Drink { get; set; } = new Sodasaurus();
-
-        public Side Side { get; set; } = new Fryceritops();
-
         public CustomizeCombo(CretaceousCombo combo)
         {
             InitializeComponent();
@@ -39,18 +35,48 @@ namespace PointOfSale
         {
             InitializeComponent();
             Combo = combo;
-            Drink = drink;
-            Side = side;
+            Combo.Drink = drink;
+            Combo.Side = side;
+        }
+
+        private void SelectSize(DinoDiner.Menu.Size size)
+        {
+            if (Combo != null)
+            {
+                this.Combo.Size = size;
+                NavigationService?.Navigate(new MenuCategorySelection());
+            }
         }
 
         private void SelectDrink(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new DrinkSelection());
+            if (Combo != null)
+            {
+                NavigationService?.Navigate(new DrinkSelection(Combo, 2));
+            }
         }
 
         private void SelectSide(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new SideSelection());
+            if (Combo != null)
+            {
+                NavigationService?.Navigate(new SideSelection(Combo, 2));
+            }
+        }
+
+        protected void OnMakeLarge(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Large);
+        }
+
+        protected void OnMakeMedium(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Medium);
+        }
+
+        protected void OnMakeSmall(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Small);
         }
     }
 }

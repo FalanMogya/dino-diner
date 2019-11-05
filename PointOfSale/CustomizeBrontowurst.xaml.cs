@@ -22,7 +22,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeBrontowurst : Page
     {
-        private Brontowurst bw;
+        private CretaceousCombo combo;
+
+        private Brontowurst bw = null;
 
         private int home;
 
@@ -33,41 +35,84 @@ namespace PointOfSale
             this.home = home;
         }
 
+        public CustomizeBrontowurst(CretaceousCombo combo, int home)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.home = home;
+        }
+
         private void OnHoldBun(object sender, RoutedEventArgs args)
         {
-            bw.HoldBun();
+            if (bw != null)
+            {
+                bw.HoldBun();
+            }
+            else if (combo != null)
+            {
+                if (combo.Entree is Brontowurst bw)
+                {
+                    bw.HoldBun();
+                    combo.Entree = bw;
+                }
+            }
         }
 
         private void OnHoldPeppers(object sender, RoutedEventArgs args)
         {
-            bw.HoldPeppers();
+            if (bw != null)
+            {
+                bw.HoldPeppers();
+            }
+            else if (combo != null)
+            {
+                if (combo.Entree is Brontowurst bw)
+                {
+                    bw.HoldPeppers();
+                    combo.Entree = bw;
+                }
+            }
         }
 
         private void OnHoldOnion(object sender, RoutedEventArgs args)
         {
-            bw.HoldOnion();
+            if (bw != null)
+            {
+                bw.HoldOnion();
+            }
+            else if (combo != null)
+            {
+                if (combo.Entree is Brontowurst bw)
+                {
+                    bw.HoldOnion();
+                    combo.Entree = bw;
+                }
+            }
         }
 
         private void OnDone(object sender, RoutedEventArgs args)
         {
             if (home == 0)
             {
-                NavigationService.Navigate(new MenuCategorySelection());
+                NavigationService?.Navigate(new MenuCategorySelection());
             }
             else if (home == 1)
             {
                 if (NavigationService.CanGoBack)
                 {
-                    NavigationService.GoBack();
+                    NavigationService?.GoBack();
                 }
                 else
                 {
-                    NavigationService.Navigate(new MenuCategorySelection());
+                    NavigationService?.Navigate(new MenuCategorySelection());
                 }
             }
             else if (home == 2)
             {
-                NavigationService.Navigate(new CustomizeCombo());
+                if (combo != null)
+                {
+                    NavigationService?.Navigate(new CustomizeCombo(combo));
+                }
             }
         }
     }

@@ -22,6 +22,8 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkSelection : Page
     {
+        private CretaceousCombo combo = null;
+
         public Drink Drink { get; set; }
 
         private int home = 0;
@@ -99,11 +101,38 @@ namespace PointOfSale
             }
         }
 
+        public DrinkSelection(CretaceousCombo combo, int home)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.home = home;
+            BtnAddSoda.IsEnabled = true;
+            BtnAddTea.IsEnabled = true;
+            BtnAddJava.IsEnabled = true;
+            BtnAddWater.IsEnabled = true;
+            BtnPickSmall.IsEnabled = false;
+            BtnPickMedium.IsEnabled = false;
+            BtnPickLarge.IsEnabled = false;
+            BtnFlavor.Visibility = Visibility.Hidden;
+            BtnFlavor.IsEnabled = false;
+            BtnDecaf.Visibility = Visibility.Hidden;
+            BtnDecaf.IsEnabled = false;
+            BtnSweet.Visibility = Visibility.Hidden;
+            BtnSweet.IsEnabled = false;
+            BtnLemon.IsEnabled = false;
+            BtnHoldIce.IsEnabled = false;
+            BtnAddIce.Visibility = Visibility.Hidden;
+            BtnAddIce.IsEnabled = false;
+        }
+
         private void SelectDrink(Drink drink)
         {
             if (DataContext is Order order)
             {
-                order.Add(drink);
+                if (combo == null)
+                {
+                    order.Add(drink);
+                }
                 this.Drink = drink;
             }
         }
@@ -121,16 +150,19 @@ namespace PointOfSale
                 {
                     if (NavigationService.CanGoBack)
                     {
-                        NavigationService.GoBack();
+                        NavigationService?.GoBack();
                     }
                     else
                     {
-                        NavigationService.Navigate(new MenuCategorySelection());
+                        NavigationService?.Navigate(new MenuCategorySelection());
                     }
                 }
                 else if (home == 2)
                 {
-                    NavigationService.Navigate(new CustomizeCombo());
+                    if (combo != null)
+                    {
+                        NavigationService?.Navigate(new CustomizeCombo(combo, Drink, combo.Side));
+                    }
                 }
             }
         }
@@ -216,7 +248,7 @@ namespace PointOfSale
         {
             if (Drink is Sodasaurus soda)
             {
-                NavigationService.Navigate(new FlavorSelection(soda));
+                NavigationService?.Navigate(new FlavorSelection(soda));
             }
         }
 

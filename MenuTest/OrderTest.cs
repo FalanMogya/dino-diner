@@ -69,7 +69,7 @@ namespace MenuTest
             SteakosaurusBurger item = new SteakosaurusBurger();
             item.Price = -10.00;
             order.Add(item);
-            Assert.Equal<double>(10.00, order.SubtotalCost);
+            Assert.Equal<double>(0, order.SubtotalCost);
         }
     }
 }

@@ -35,7 +35,7 @@ namespace PointOfSale
             if (Soda != null)
             {
                 this.Soda.Flavor = flavor;
-                NavigationService?.Navigate(new DrinkSelection(Soda));
+                NavigationService?.Navigate(new DrinkSelection(Soda, 0));
             }
         }
 

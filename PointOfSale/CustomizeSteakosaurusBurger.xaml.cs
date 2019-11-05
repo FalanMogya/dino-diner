@@ -24,6 +24,8 @@ namespace PointOfSale
     {
         private SteakosaurusBurger sb;
 
+        private CretaceousCombo combo;
+
         private int home;
 
         public CustomizeSteakosaurusBurger(SteakosaurusBurger sb, int home)
@@ -33,46 +35,100 @@ namespace PointOfSale
             this.home = home;
         }
 
+        public CustomizeSteakosaurusBurger(CretaceousCombo combo, int home)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.home = home;
+        }
+
         private void OnHoldBun(object sender, RoutedEventArgs args)
         {
-            sb.HoldBun();
+            if (sb != null)
+            {
+                sb.HoldBun();
+            }
+            else if (combo != null)
+            {
+                if (combo.Entree is SteakosaurusBurger sb)
+                {
+                    sb.HoldBun();
+                    combo.Entree = sb;
+                }
+            }
         }
 
         private void OnHoldPickle(object sender, RoutedEventArgs args)
         {
-            sb.HoldPickle();
+            if (sb != null)
+            {
+                sb.HoldPickle();
+            }
+            else if (combo != null)
+            {
+                if (combo.Entree is SteakosaurusBurger sb)
+                {
+                    sb.HoldPickle();
+                    combo.Entree = sb;
+                }
+            }
         }
 
         private void OnHoldKetchup(object sender, RoutedEventArgs args)
         {
-            sb.HoldKetchup();
+            if (sb != null)
+            {
+                sb.HoldKetchup();
+            }
+            else if (combo != null)
+            {
+                if (combo.Entree is SteakosaurusBurger sb)
+                {
+                    sb.HoldKetchup();
+                    combo.Entree = sb;
+                }
+            }
         }
 
         private void OnHoldMustard(object sender, RoutedEventArgs args)
         {
-            sb.HoldMustard();
+            if (sb != null)
+            {
+                sb.HoldMustard();
+            }
+            else if (combo != null)
+            {
+                if (combo.Entree is SteakosaurusBurger sb)
+                {
+                    sb.HoldMustard();
+                    combo.Entree = sb;
+                }
+            }
         }
 
         private void OnDone(object sender, RoutedEventArgs args)
         {
             if (home == 0)
             {
-                NavigationService.Navigate(new MenuCategorySelection());
+                NavigationService?.Navigate(new MenuCategorySelection());
             }
             else if (home == 1)
             {
                 if (NavigationService.CanGoBack)
                 {
-                    NavigationService.GoBack();
+                    NavigationService?.GoBack();
                 }
                 else
                 {
-                    NavigationService.Navigate(new MenuCategorySelection());
+                    NavigationService?.Navigate(new MenuCategorySelection());
                 }
             }
             else if (home == 2)
             {
-                NavigationService.Navigate(new CustomizeCombo());
+                if (combo != null)
+                {
+                    NavigationService?.Navigate(new CustomizeCombo(combo));
+                }
             }
         }
     }

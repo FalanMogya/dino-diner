@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Customize Combo">
 
-    <Grid>
+    <Grid Background="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -47,12 +47,12 @@
             </StackPanel>
         </Button>
         
-        <TextBlock Grid.Column="2" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center">Side</TextBlock>
-        
-        <RadioButton Grid.Column="2" Grid.Row="1" >Small</RadioButton>
-        
-        <RadioButton Grid.Column="2" Grid.Row="2" >Medium</RadioButton>
-        
-        <RadioButton Grid.Column="2" Grid.Row="3" >Large</RadioButton>
+        <TextBlock Grid.Column="2" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center">Size</TextBlock>
+
+        <RadioButton Name="BtnPickSmall" Click="OnMakeSmall" Grid.Column="2" Grid.Row="1">Small</RadioButton>
+
+        <RadioButton Name="BtnPickMedium" Click="OnMakeMedium" Grid.Column="2" Grid.Row="2">Medium</RadioButton>
+
+        <RadioButton Name="BtnPickLarge" Click="OnMakeLarge" Grid.Column="2" Grid.Row="3">Large</RadioButton>
     </Grid>
 </Page>

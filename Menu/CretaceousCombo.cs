@@ -59,21 +59,50 @@ namespace DinoDiner.Menu
             set
             {
                 entree = value;
+                NotifyOfPropertyChange("Special");
                 NotifyOfPropertyChange("Description");
                 NotifyOfPropertyChange("Price");
                 NotifyOfPropertyChange("Ingredients");
             }
-        }   
-        
+        }
+
+        private Side side = new Fryceritops();
+
         /// <summary>        
         /// Gets and sets the side        
         /// </summary>        
-        public Side Side { get; set; } = new Fryceritops();    
-        
+        public Side Side
+        {
+            get
+            {
+                return side;
+            }
+            set
+            {
+                side = value;
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Description");
+            }
+        }
+
+        private Drink drink = new Sodasaurus();
+
         /// <summary>        
         /// Gets and sets the drink        
         /// </summary>        
-        public Drink Drink { get; set; } = new Sodasaurus(); 
+        public Drink Drink
+        {
+            get
+            {
+                return drink;
+            }
+            set
+            {
+                drink = value;
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Description");
+            }
+        } 
         
         /// <summary>        
         /// Gets the price of the combo        
@@ -109,6 +138,8 @@ namespace DinoDiner.Menu
                 Drink.Size = value;
                 Side.Size = value;
                 NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Description");
             }
         }
         

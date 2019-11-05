@@ -22,7 +22,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeDinoNuggets : Page
     {
-        private DinoNuggets dn;
+        private DinoNuggets dn = null;
+
+        private CretaceousCombo combo = null;
 
         private int home;
 
@@ -33,31 +35,52 @@ namespace PointOfSale
             this.home = home;
         }
 
+        public CustomizeDinoNuggets(CretaceousCombo combo, int home)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.home = home;
+        }
+
         private void OnAddNuggets(object sender, RoutedEventArgs args)
         {
-            dn.AddNugget();
+            if (dn != null)
+            {
+                dn.AddNugget();
+            }
+            else if (combo != null)
+            {
+                if (combo.Entree is DinoNuggets dn)
+                {
+                    dn.AddNugget();
+                    combo.Entree = dn;
+                }
+            }
         }
 
         private void OnDone(object sender, RoutedEventArgs args)
         {
             if (home == 0)
             {
-                NavigationService.Navigate(new MenuCategorySelection());
+                NavigationService?.Navigate(new MenuCategorySelection());
             }
             else if (home == 1)
             {
                 if (NavigationService.CanGoBack)
                 {
-                    NavigationService.GoBack();
+                    NavigationService?.GoBack();
                 }
                 else
                 {
-                    NavigationService.Navigate(new MenuCategorySelection());
+                    NavigationService?.Navigate(new MenuCategorySelection());
                 }
             }
             else if (home == 2)
             {
-                NavigationService.Navigate(new CustomizeCombo());
+                if (combo != null)
+                {
+                    NavigationService?.Navigate(new CustomizeCombo(combo));
+                }
             }
         }
     }

@@ -40,49 +40,49 @@ namespace PointOfSale
         {
             Brontowurst bw = new Brontowurst();
             SelectEntree(bw);
-            NavigationService.Navigate(new CustomizeBrontowurst(bw, 0));
+            NavigationService?.Navigate(new CustomizeBrontowurst(bw, 0));
         }
 
         protected void AddNuggets(object sender, RoutedEventArgs args)
         {
             DinoNuggets dn = new DinoNuggets();
             SelectEntree(dn);
-            NavigationService.Navigate(new CustomizeDinoNuggets(dn, 0));
+            NavigationService?.Navigate(new CustomizeDinoNuggets(dn, 0));
         }
 
         protected void AddSteakosaurus(object sender, RoutedEventArgs args)
         {
             SteakosaurusBurger sb = new SteakosaurusBurger();
             SelectEntree(sb);
-            NavigationService.Navigate(new CustomizeSteakosaurusBurger(sb, 0));
+            NavigationService?.Navigate(new CustomizeSteakosaurusBurger(sb, 0));
         }
 
         protected void AddTrex(object sender, RoutedEventArgs args)
         {
             TRexKingBurger trex = new TRexKingBurger();
             SelectEntree(trex);
-            NavigationService.Navigate(new CustomizeTRexKingBurger(trex, 0));
+            NavigationService?.Navigate(new CustomizeTRexKingBurger(trex, 0));
         }
 
         protected void AddWings(object sender, RoutedEventArgs args)
         {
             PterodactylWings pw = new PterodactylWings();
             SelectEntree(pw);
-            NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService?.Navigate(new MenuCategorySelection());
         }
 
         protected void AddPBJ(object sender, RoutedEventArgs args)
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
             SelectEntree(pbj);
-            NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj, 0));
+            NavigationService?.Navigate(new CustomizePrehistoricPBJ(pbj, 0));
         }
 
         protected void AddWrap(object sender, RoutedEventArgs args)
         {
             VelociWrap vw = new VelociWrap();
             SelectEntree(vw);
-            NavigationService.Navigate(new CustomizeVelociWrap(vw, 0));
+            NavigationService?.Navigate(new CustomizeVelociWrap(vw, 0));
         }
     }
 }

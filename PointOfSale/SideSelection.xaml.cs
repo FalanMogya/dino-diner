@@ -22,6 +22,7 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        private CretaceousCombo combo;
 
         public Side Side { get; set; }
 
@@ -53,11 +54,28 @@ namespace PointOfSale
             BtnPickLarge.IsEnabled = true;
         }
 
+        public SideSelection(CretaceousCombo combo, int home)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.home = home;
+            BtnAddFries.IsEnabled = true;
+            BtnAddMMC.IsEnabled = true;
+            BtnAddMS.IsEnabled = true;
+            BtnAddTots.IsEnabled = true;
+            BtnPickSmall.IsEnabled = false;
+            BtnPickMedium.IsEnabled = false;
+            BtnPickLarge.IsEnabled = false;
+        }
+
         private void SelectSide(Side side)
         {
             if (DataContext is Order order)
             {
-                order.Add(side);
+                if (combo == null)
+                {
+                    order.Add(side);
+                }
                 this.Side = side;
             }
             BtnAddFries.IsEnabled = false;
@@ -82,16 +100,19 @@ namespace PointOfSale
                 {
                     if (NavigationService.CanGoBack)
                     {
-                        NavigationService.GoBack();
+                        NavigationService?.GoBack();
                     }
                     else
                     {
-                        NavigationService.Navigate(new MenuCategorySelection());
+                        NavigationService?.Navigate(new MenuCategorySelection());
                     }
                 }
                 else if (home == 2)
                 {
-                    NavigationService.Navigate(new CustomizeCombo());
+                    if (combo != null)
+                    {
+                        NavigationService?.Navigate(new CustomizeCombo(combo, combo.Drink, Side));
+                    }
                 }
             }
         }

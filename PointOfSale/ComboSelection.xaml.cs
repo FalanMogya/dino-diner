@@ -39,7 +39,7 @@ namespace PointOfSale
             Brontowurst bw = new Brontowurst();
             CretaceousCombo combo = new CretaceousCombo(bw);
             SelectCombo(combo);
-            NavigationService.Navigate(new CustomizeBrontowurst(bw, 2));
+            NavigationService?.Navigate(new CustomizeBrontowurst(combo, 2));
         }
 
         protected void AddNuggetsCombo(object sender, RoutedEventArgs args)
@@ -47,7 +47,7 @@ namespace PointOfSale
             DinoNuggets dn = new DinoNuggets();
             CretaceousCombo combo = new CretaceousCombo(dn);
             SelectCombo(combo);
-            NavigationService.Navigate(new CustomizeDinoNuggets(dn, 2));
+            NavigationService?.Navigate(new CustomizeDinoNuggets(combo, 2));
         }
 
         protected void AddSteakosaurusCombo(object sender, RoutedEventArgs args)
@@ -55,7 +55,7 @@ namespace PointOfSale
             SteakosaurusBurger sb = new SteakosaurusBurger();
             CretaceousCombo combo = new CretaceousCombo(sb);
             SelectCombo(combo);
-            NavigationService.Navigate(new CustomizeSteakosaurusBurger(sb, 2));
+            NavigationService?.Navigate(new CustomizeSteakosaurusBurger(combo, 2));
         }
 
         protected void AddTrexCombo(object sender, RoutedEventArgs args)
@@ -63,7 +63,7 @@ namespace PointOfSale
             TRexKingBurger trex = new TRexKingBurger();
             CretaceousCombo combo = new CretaceousCombo(trex);
             SelectCombo(combo);
-            NavigationService.Navigate(new CustomizeTRexKingBurger(trex, 2));
+            NavigationService?.Navigate(new CustomizeTRexKingBurger(combo, 2));
         }
 
         protected void AddWingsCombo(object sender, RoutedEventArgs args)
@@ -71,7 +71,7 @@ namespace PointOfSale
             PterodactylWings pw = new PterodactylWings();
             CretaceousCombo combo = new CretaceousCombo(pw);
             SelectCombo(combo);
-            NavigationService.Navigate(new CustomizeCombo());
+            NavigationService?.Navigate(new CustomizeCombo(combo));
         }
 
         protected void AddPBJCombo(object sender, RoutedEventArgs args)
@@ -79,7 +79,7 @@ namespace PointOfSale
             PrehistoricPBJ pbj = new PrehistoricPBJ();
             CretaceousCombo combo = new CretaceousCombo(pbj);
             SelectCombo(combo);
-            NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj, 2));
+            NavigationService?.Navigate(new CustomizePrehistoricPBJ(combo, 2));
         }
 
         protected void AddWrapCombo(object sender, RoutedEventArgs args)
@@ -87,7 +87,7 @@ namespace PointOfSale
             VelociWrap vw = new VelociWrap();
             CretaceousCombo combo = new CretaceousCombo(vw);
             SelectCombo(combo);
-            NavigationService.Navigate(new CustomizeVelociWrap(vw, 2));
+            NavigationService?.Navigate(new CustomizeVelociWrap(combo, 2));
         }
     }
 }
