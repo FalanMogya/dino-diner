@@ -22,6 +22,8 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
+        public CretaceousCombo Combo { get; set; }
+
         public Sodasaurus Soda { get; set; }
 
         public FlavorSelection(Sodasaurus soda)
@@ -30,12 +32,26 @@ namespace PointOfSale
             Soda = soda;
         }
 
+        public FlavorSelection(CretaceousCombo combo, Sodasaurus soda)
+        {
+            InitializeComponent();
+            Combo = combo;
+            Soda = soda;
+        }
+
         private void SelectFlavor(SodasaurusFlavor flavor)
         {
             if (Soda != null)
             {
                 this.Soda.Flavor = flavor;
-                NavigationService?.Navigate(new DrinkSelection(Soda, 0));
+                if (Combo != null)
+                {
+                    NavigationService?.Navigate(new DrinkSelection(Combo, Soda, 2));
+                }
+                else
+                {
+                    NavigationService?.Navigate(new DrinkSelection(Soda, 0));
+                }
             }
         }
 

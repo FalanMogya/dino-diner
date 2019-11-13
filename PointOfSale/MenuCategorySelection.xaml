@@ -27,6 +27,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
+        
         <Button Click="SelectEntree" Grid.Row="0" Grid.Column="1">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-05.png"/>
@@ -37,6 +38,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
+        
         <Button Click="SelectDrink" Grid.Row="1" Grid.Column="0">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-14.png"/>
@@ -47,6 +49,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
+        
         <Button Click="SelectSide" Grid.Row="1" Grid.Column="1">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-08.png"/>

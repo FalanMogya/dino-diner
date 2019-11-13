@@ -53,7 +53,7 @@
             </StackPanel>
         </Button>
         
-        <Button Name="BtnAddMS" Grid.Column="0" Grid.Row="7" Grid.RowSpan="3" VerticalContentAlignment="Top">
+        <Button Name="BtnAddMS" Click="AddMS" Grid.Column="0" Grid.Row="7" Grid.RowSpan="3" VerticalContentAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-10.png"/>
             </Button.Background>

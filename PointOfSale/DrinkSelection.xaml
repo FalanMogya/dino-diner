@@ -93,7 +93,9 @@
         <Button Name="BtnSweet" Click="MakeSweet" Grid.Column="2" Grid.Row="1" Grid.RowSpan="4">Sweet</Button>
         
         <Button Name ="BtnLemon" Click="AddLemon"  Grid.Column="2" Grid.Row="5" Grid.RowSpan="4">Add Lemon</Button>
-        
+
+        <Button Name ="BtnCream" Click="AddCream"  Grid.Column="2" Grid.Row="5" Grid.RowSpan="4">Add Room For Cream</Button>
+
         <Button Name="BtnHoldIce" Click="HoldIce" Grid.Column="2" Grid.Row="9" Grid.RowSpan="4">Hold Ice</Button>
 
         <Button Name="BtnAddIce" Click="AddIce" Grid.Column="2" Grid.Row="9" Grid.RowSpan="4">Add Ice</Button>

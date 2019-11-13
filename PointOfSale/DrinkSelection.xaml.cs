@@ -44,7 +44,10 @@ namespace PointOfSale
             BtnDecaf.IsEnabled = false;
             BtnSweet.Visibility = Visibility.Hidden;
             BtnSweet.IsEnabled = false;
+            BtnLemon.Visibility = Visibility.Hidden;
             BtnLemon.IsEnabled = false;
+            BtnCream.Visibility = Visibility.Hidden;
+            BtnCream.IsEnabled = false;
             BtnHoldIce.IsEnabled = false;
             BtnAddIce.Visibility = Visibility.Hidden;
             BtnAddIce.IsEnabled = false;
@@ -68,7 +71,10 @@ namespace PointOfSale
             BtnDecaf.IsEnabled = false;
             BtnSweet.Visibility = Visibility.Hidden;
             BtnSweet.IsEnabled = false;
+            BtnLemon.Visibility = Visibility.Hidden;
             BtnLemon.IsEnabled = false;
+            BtnCream.Visibility = Visibility.Hidden;
+            BtnCream.IsEnabled = false;
             BtnHoldIce.IsEnabled = false;
             BtnAddIce.Visibility = Visibility.Hidden;
             BtnAddIce.IsEnabled = false;
@@ -83,6 +89,7 @@ namespace PointOfSale
             {
                 BtnSweet.Visibility = Visibility.Visible;
                 BtnSweet.IsEnabled = true;
+                BtnLemon.Visibility = Visibility.Visible;
                 BtnLemon.IsEnabled = true;
                 BtnHoldIce.IsEnabled = true;
             }
@@ -90,12 +97,15 @@ namespace PointOfSale
             {
                 BtnDecaf.Visibility = Visibility.Visible;
                 BtnDecaf.IsEnabled = true;
+                BtnCream.Visibility = Visibility.Visible;
+                BtnCream.IsEnabled = true;
                 BtnHoldIce.Visibility = Visibility.Hidden;
                 BtnAddIce.Visibility = Visibility.Visible;
                 BtnAddIce.IsEnabled = true;
             }
             else if (drink is Water)
             {
+                BtnLemon.Visibility = Visibility.Visible;
                 BtnLemon.IsEnabled = true;
                 BtnHoldIce.IsEnabled = true;
             }
@@ -119,10 +129,72 @@ namespace PointOfSale
             BtnDecaf.IsEnabled = false;
             BtnSweet.Visibility = Visibility.Hidden;
             BtnSweet.IsEnabled = false;
+            BtnLemon.Visibility = Visibility.Hidden;
             BtnLemon.IsEnabled = false;
+            BtnCream.Visibility = Visibility.Hidden;
+            BtnCream.IsEnabled = false;
             BtnHoldIce.IsEnabled = false;
             BtnAddIce.Visibility = Visibility.Hidden;
             BtnAddIce.IsEnabled = false;
+        }
+
+        public DrinkSelection(CretaceousCombo combo, Drink drink, int home)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            Drink = drink;
+            this.home = home;
+            BtnAddSoda.IsEnabled = false;
+            BtnAddTea.IsEnabled = false;
+            BtnAddJava.IsEnabled = false;
+            BtnAddWater.IsEnabled = false;
+            BtnPickSmall.IsEnabled = true;
+            BtnPickMedium.IsEnabled = true;
+            BtnPickLarge.IsEnabled = true;
+            BtnFlavor.Visibility = Visibility.Hidden;
+            BtnFlavor.IsEnabled = false;
+            BtnDecaf.Visibility = Visibility.Hidden;
+            BtnDecaf.IsEnabled = false;
+            BtnSweet.Visibility = Visibility.Hidden;
+            BtnSweet.IsEnabled = false;
+            BtnLemon.Visibility = Visibility.Hidden;
+            BtnLemon.IsEnabled = false;
+            BtnCream.Visibility = Visibility.Hidden;
+            BtnCream.IsEnabled = false;
+            BtnHoldIce.IsEnabled = false;
+            BtnAddIce.Visibility = Visibility.Hidden;
+            BtnAddIce.IsEnabled = false;
+
+            if (drink is Sodasaurus)
+            {
+                BtnFlavor.Visibility = Visibility.Visible;
+                BtnFlavor.IsEnabled = true;
+                BtnHoldIce.IsEnabled = true;
+            }
+            else if (drink is Tyrannotea)
+            {
+                BtnSweet.Visibility = Visibility.Visible;
+                BtnSweet.IsEnabled = true;
+                BtnLemon.Visibility = Visibility.Visible;
+                BtnLemon.IsEnabled = true;
+                BtnHoldIce.IsEnabled = true;
+            }
+            else if (drink is JurassicJava)
+            {
+                BtnDecaf.Visibility = Visibility.Visible;
+                BtnDecaf.IsEnabled = true;
+                BtnCream.Visibility = Visibility.Hidden;
+                BtnCream.IsEnabled = false;
+                BtnHoldIce.Visibility = Visibility.Hidden;
+                BtnAddIce.Visibility = Visibility.Visible;
+                BtnAddIce.IsEnabled = true;
+            }
+            else if (drink is Water)
+            {
+                BtnLemon.Visibility = Visibility.Visible;
+                BtnLemon.IsEnabled = true;
+                BtnHoldIce.IsEnabled = true;
+            }
         }
 
         private void SelectDrink(Drink drink)
@@ -194,6 +266,7 @@ namespace PointOfSale
             BtnPickLarge.IsEnabled = true;
             BtnSweet.Visibility = Visibility.Visible;
             BtnSweet.IsEnabled = true;
+            BtnLemon.Visibility = Visibility.Visible;
             BtnLemon.IsEnabled = true;
             BtnHoldIce.IsEnabled = true;
         }
@@ -210,6 +283,8 @@ namespace PointOfSale
             BtnPickLarge.IsEnabled = true;
             BtnDecaf.Visibility = Visibility.Visible;
             BtnDecaf.IsEnabled = true;
+            BtnCream.Visibility = Visibility.Visible;
+            BtnCream.IsEnabled = true;
             BtnHoldIce.Visibility = Visibility.Hidden;
             BtnAddIce.Visibility = Visibility.Visible;
             BtnAddIce.IsEnabled = true;
@@ -225,6 +300,7 @@ namespace PointOfSale
             BtnPickSmall.IsEnabled = true;
             BtnPickMedium.IsEnabled = true;
             BtnPickLarge.IsEnabled = true;
+            BtnLemon.Visibility = Visibility.Visible;
             BtnLemon.IsEnabled = true;
             BtnHoldIce.IsEnabled = true;
         }
@@ -248,7 +324,14 @@ namespace PointOfSale
         {
             if (Drink is Sodasaurus soda)
             {
-                NavigationService?.Navigate(new FlavorSelection(soda));
+                if (combo != null)
+                {
+                    NavigationService?.Navigate(new FlavorSelection(combo, soda));
+                }
+                else
+                {
+                    NavigationService?.Navigate(new FlavorSelection(soda));
+                }
             }
         }
 
@@ -292,6 +375,15 @@ namespace PointOfSale
             else if (Drink is Water water)
             {
                 water.AddLemon();
+                BtnLemon.IsEnabled = false;
+            }
+        }
+
+        protected void AddCream(object sender, RoutedEventArgs args)
+        {
+            if (Drink is JurassicJava java)
+            {
+                java.RoomForCream = true;
                 BtnLemon.IsEnabled = false;
             }
         }

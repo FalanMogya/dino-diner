@@ -41,10 +41,23 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        private bool cream;
+
         /// <summary>
         /// Gets or sets whether the JurassicJava will have room for cream
         /// </summary>
-        public bool RoomForCream { get; set; }
+        public bool RoomForCream
+        {
+            get
+            {
+                return cream;
+            }
+            set
+            {
+                cream = value;
+                NotifyOfPropertyChange("Special");
+            }
+        }
 
         private bool decaf;
 
