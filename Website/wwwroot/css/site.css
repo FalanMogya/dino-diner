@@ -12,3 +12,27 @@ body {
     padding-right: 15px;
 }
 
+.title {
+    text-align: center;
+}
+
+.image {
+    text-align: center;
+}
+
+.link {
+    text-align: center;
+    font-size: 50px;
+}
+
+.paragraph {
+    text-align: center;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.menu-item {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
