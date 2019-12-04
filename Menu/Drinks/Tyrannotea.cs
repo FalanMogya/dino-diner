@@ -14,7 +14,7 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Defines the drink Tyrannotea
     /// </summary>
-    public class Tyrannotea : Drink, IOrderItem, INotifyPropertyChanged
+    public class Tyrannotea : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Backing variables
         private bool sweet = false;

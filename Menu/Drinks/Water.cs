@@ -14,7 +14,7 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Defines the drink Water
     /// </summary>
-    public class Water : Drink, IOrderItem, INotifyPropertyChanged
+    public class Water : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// The PropertyChanged event handler; notifies of canges to the Price,

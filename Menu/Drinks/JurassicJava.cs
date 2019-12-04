@@ -13,7 +13,7 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Defines the drink JurassicJava
     /// </summary>
-    public class JurassicJava : Drink, IOrderItem, INotifyPropertyChanged
+    public class JurassicJava : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// The PropertyChanged event handler; notifies of canges to the Price,

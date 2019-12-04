@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using DinoDiner.Menu;
 using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu.Sides;
+using DinoDiner.Menu.Drinks;
 
 namespace Website.Pages
 {
@@ -28,37 +30,40 @@ namespace Website.Pages
         [BindProperty]
         public List<string> ingredients { get; set; } = new List<string>();
 
-        public List<IMenuItem> Combos { get; set; }
+        public IEnumerable<IMenuItem> MenuItems { get; set; }
+
+        public IEnumerable<IMenuItem> Combos { get; set; }
 
         [BindProperty]
         public bool combo { get; set; } = true;
 
-        public List<IMenuItem> Entrees { get; set; }
+        public IEnumerable<IMenuItem> Entrees { get; set; }
 
         [BindProperty]
         public bool entree { get; set; } = true;
 
-        public List<IMenuItem> Sides { get; set; }
+        public IEnumerable<IMenuItem> Sides { get; set; }
 
         [BindProperty]
         public bool side { get; set; } = true;
 
         [BindProperty]
-        public List<IMenuItem> Drinks { get; set; }
+        public IEnumerable<IMenuItem> Drinks { get; set; }
 
         [BindProperty]
         public bool drink { get; set; } = true;
 
-        public List<string> Ingredients { get; set; }
+        public IEnumerable<string> Ingredients { get; set; }
 
         public void OnGet()
         {
             Menu = new Menu();
 
-            Combos = Menu.AvaliableCombos;
-            Entrees = Menu.AvaliableEntrees;
-            Sides = Menu.AvaliableSides;
-            Drinks = Menu.AvaliableDrinks;
+            MenuItems = Menu.AvaliableMenuItems;
+            Combos = MenuItems.OfType<CretaceousCombo>();
+            Entrees = MenuItems.OfType<Entree>();
+            Sides = MenuItems.OfType<Side>();
+            Drinks = MenuItems.OfType<Drink>();
             Ingredients = Menu.PossibleIngredients;
         }
 
@@ -66,87 +71,61 @@ namespace Website.Pages
         {
             Menu = new Menu();
 
-            Combos = Menu.AvaliableCombos;
-            Entrees = Menu.AvaliableEntrees;
-            Sides = Menu.AvaliableSides;
-            Drinks = Menu.AvaliableDrinks;
+            MenuItems = Menu.AvaliableMenuItems;
             Ingredients = Menu.PossibleIngredients;
 
             if (search != null)
             {
                 this.search = search;
-                if (Combos != null)
-                {
-                    Combos = Menu.Search(Combos, search);
-                }
-                if (Entrees != null)
-                {
-                    Entrees = Menu.Search(Entrees, search);
-                }
-                if (Sides != null)
-                {
-                    Sides = Menu.Search(Sides, search);
-                }
-                if (Drinks != null)
-                {
-                    Drinks = Menu.Search(Drinks, search);
-                }
+                MenuItems = MenuItems.OfType<IOrderItem>().Where(item => item.Description.ToLower().Contains(search.ToLower())).OfType<IMenuItem>();
             }
 
             if (category.Count > 0)
             {
                 this.category = category;
+                IEnumerable<IMenuItem> menu = null;
+
                 if (category.Contains("Combo"))
                 {
-                    combo = true;
-                } else
-                {
-                    combo = false;
-                }
+                    menu = MenuItems.OfType<CretaceousCombo>();
+                } 
                 if (category.Contains("Entree"))
                 {
-                    entree = true;
-                } else
-                {
-                    entree = false;
+                    menu = MenuItems.OfType<Entree>();
                 }
                 if (category.Contains("Side"))
                 {
-                    side = true;
-                } else
-                {
-                    side = false;
-                }
+                    menu = MenuItems.OfType<Side>();
+                } 
                 if (category.Contains("Drink"))
                 {
-                    drink = true;
-                } else
-                {
-                    drink = false;
+                    menu = MenuItems.OfType<Drink>();
                 }
+
+                MenuItems = menu;
             }
 
             this.minPrice = minPrice;
-            Combos = Menu.FilterByMinPrice(Combos, minPrice);
-            Entrees = Menu.FilterByMinPrice(Entrees, minPrice);
-            Sides = Menu.FilterByMinPrice(Sides, minPrice);
-            Drinks = Menu.FilterByMinPrice(Drinks, minPrice);
+            MenuItems = MenuItems.Where(item => item.Price <= minPrice);
 
 
             this.maxPrice = maxPrice;
-            Combos = Menu.FilterByMaxPrice(Combos, maxPrice);
-            Entrees = Menu.FilterByMaxPrice(Entrees, maxPrice);
-            Sides = Menu.FilterByMaxPrice(Sides, maxPrice);
-            Drinks = Menu.FilterByMaxPrice(Drinks, maxPrice);
+            MenuItems = MenuItems.Where(item => item.Price >= maxPrice);
 
             if (ingredients.Count > 0)
             {
                 this.ingredients = ingredients;
-                Combos = Menu.FilterByIngredients(Combos, ingredients);
-                Entrees = Menu.FilterByIngredients(Entrees, ingredients);
-                Sides = Menu.FilterByIngredients(Sides, ingredients);
-                Drinks = Menu.FilterByIngredients(Drinks, ingredients);
+                foreach (string ingredient in ingredients)
+                {
+                    MenuItems = MenuItems.Where(item => !item.Ingredients.Contains(ingredient));
+                }
             }
+
+            MenuItems = Menu.AvaliableMenuItems.OfType<IMenuItem>();
+            Combos = MenuItems.OfType<CretaceousCombo>();
+            Entrees = MenuItems.OfType<Entree>();
+            Sides = MenuItems.OfType<Side>();
+            Drinks = MenuItems.OfType<Drink>();
         }
     }
 }

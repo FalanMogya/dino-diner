@@ -14,7 +14,7 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Defines the drink Sodasaurus
     /// </summary>
-    public class Sodasaurus : Drink, IOrderItem, INotifyPropertyChanged
+    public class Sodasaurus : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// The PropertyChanged event handler; notifies of canges to the Price,

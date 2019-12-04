@@ -220,7 +220,7 @@ namespace DinoDiner.Menu
 
             foreach (IOrderItem item in menu)
             {
-                if (item.Description.Contains(searchString))
+                if (item.Description.ToLower().Contains(searchString.ToLower()))
                 {
                     results.Add((IMenuItem)item);
                 }
@@ -261,16 +261,24 @@ namespace DinoDiner.Menu
 
         public static List<IMenuItem> FilterByIngredients(List<IMenuItem> menu, List<string> ingredients)
         {
-            List<IMenuItem> results = menu;
+            List<IMenuItem> results = new List<IMenuItem>();
+            bool good;
 
             foreach (IMenuItem item in menu)
             {
-                foreach (string ingredient in item.Ingredients)
+                good = true;
+
+                foreach (string ingredient in ingredients)
                 {
-                    if (ingredients.Contains(ingredient))
+                    if (item.Ingredients.Contains(ingredient))
                     {
-                        results.Remove(item);
+                        good = false;
                     }
+                }
+
+                if (good)
+                {
+                    results.Add(item);
                 }
             }
 

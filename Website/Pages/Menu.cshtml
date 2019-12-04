@@ -11,7 +11,7 @@
 <div id="container">
     <div id="menu">
 
-        @if(Model.combo)
+        @if(Model.Combos != null)
         {
             <h2>Combos</h2>
             <div>
@@ -40,7 +40,7 @@
             </div>
         }
 
-        @if(Model.entree)
+        @if(Model.Entrees != null)
         {
             <h2>Entrees</h2>
             <div>
@@ -69,7 +69,7 @@
             </div>
         }
 
-        @if(Model.side)
+        @if(Model.Sides != null)
         {
             <h2>Sides</h2>
             <div>
@@ -98,7 +98,7 @@
             </div>
         }
 
-        @if (Model.drink)
+        @if (Model.Drinks != null)
         {
             <h2>Drinks</h2>
             <div>
