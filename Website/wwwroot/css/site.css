@@ -61,3 +61,20 @@ form {
     border-bottom: 1px dashed grey;
 }
 
+.grid {
+    display: flex;
+    flex-direction: row;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+}
+
+.row > div {
+    color: grey;
+    border: 1px solid grey;
+    text-align: center;
+    width: 100px;
+}
+

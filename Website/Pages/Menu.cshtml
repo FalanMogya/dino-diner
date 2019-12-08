@@ -21,17 +21,42 @@
                         <h3>
                             @combo.Description
                         </h3>
-                        <div>
-                            <b>
-                                $@combo.Price
-                            </b>
+                        <div class="grid">
+                            <div class="row">
+                                <div><b>Size</b></div>
+                                <div><b>Price</b></div>
+                                <div><b>Calories</b></div>
+                            </div>
+                            <div class="row">
+                                <div>@(combo.Size = DinoDiner.Menu.Size.Small)</div>
+                                <div>
+
+                                    @(combo.Price)
+                                </div>
+                                <div>
+                                    @combo.Calories
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>@(combo.Size = DinoDiner.Menu.Size.Medium)</div>
+                                <div>
+                                    @combo.Price
+                                </div>
+                                <div>
+                                    @combo.Calories
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>@(combo.Size = DinoDiner.Menu.Size.Large)</div>
+                                <div>
+                                    @combo.Price
+                                </div>
+                                <div>
+                                    @combo.Calories
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <i>
-                                @combo.Calories Calories
-                            </i>
-                        </div>
-                        @foreach(string i in combo.Ingredients)
+                        @foreach (string i in combo.Ingredients)
                         {
                             <div>*@i</div>
                         }
@@ -79,15 +104,39 @@
                         <h3>
                             @side.Description
                         </h3>
-                        <div>
-                            <b>
-                                $@side.Price
-                            </b>
-                        </div>
-                        <div>
-                            <i>
-                                @side.Calories Calories
-                            </i>
+                        <div class="grid">
+                            <div class="row">
+                                <div><b>Size</b></div>
+                                <div><b>Price</b></div>
+                                <div><b>Calories</b></div>
+                            </div>
+                            <div class="row">
+                                <div>@(side.Size = DinoDiner.Menu.Size.Small)</div>
+                                <div>
+                                    @side.Price
+                                </div>
+                                <div>
+                                    @side.Calories
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>@(side.Size = DinoDiner.Menu.Size.Medium)</div>
+                                <div>
+                                    @side.Price
+                                </div>
+                                <div>
+                                    @side.Calories
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>@(side.Size = DinoDiner.Menu.Size.Large)</div>
+                                <div>
+                                    @side.Price
+                                </div>
+                                <div>
+                                    @side.Calories
+                                </div>
+                            </div>
                         </div>
                         @foreach(string i in side.Ingredients)
                         {
@@ -108,15 +157,39 @@
                         <h3>
                             @drink.Description
                         </h3>
-                        <div>
-                            <b>
-                                $@drink.Price
-                            </b>
-                        </div>
-                        <div>
-                            <i>
-                                @drink.Calories Calories
-                            </i>
+                        <div class="grid">
+                            <div class="row">
+                                <div><b>Size</b></div>
+                                <div><b>Price</b></div>
+                                <div><b>Calories</b></div>
+                            </div>
+                            <div class="row">
+                                <div>@(drink.Size = DinoDiner.Menu.Size.Small)</div>
+                                <div>
+                                    @drink.Price
+                                </div>
+                                <div>
+                                    @drink.Calories
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>@(drink.Size = DinoDiner.Menu.Size.Medium)</div>
+                                <div>
+                                    @drink.Price
+                                </div>
+                                <div>
+                                    @drink.Calories
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>@(drink.Size = DinoDiner.Menu.Size.Large)</div>
+                                <div>
+                                    @drink.Price
+                                </div>
+                                <div>
+                                    @drink.Calories
+                                </div>
+                            </div>
                         </div>
                         @foreach (string i in drink.Ingredients)
                         {

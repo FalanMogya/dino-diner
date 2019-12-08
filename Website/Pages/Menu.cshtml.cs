@@ -34,32 +34,18 @@ namespace Website.Pages
 
         public IEnumerable<IMenuItem> Combos { get; set; }
 
-        [BindProperty]
-        public bool combo { get; set; } = true;
-
         public IEnumerable<IMenuItem> Entrees { get; set; }
-
-        [BindProperty]
-        public bool entree { get; set; } = true;
 
         public IEnumerable<IMenuItem> Sides { get; set; }
 
-        [BindProperty]
-        public bool side { get; set; } = true;
-
-        [BindProperty]
         public IEnumerable<IMenuItem> Drinks { get; set; }
-
-        [BindProperty]
-        public bool drink { get; set; } = true;
 
         public IEnumerable<string> Ingredients { get; set; }
 
         public void OnGet()
         {
             Menu = new Menu();
-
-            MenuItems = Menu.AvaliableMenuItems;
+            MenuItems = Menu.AvaliableMenuItems.OfType<IMenuItem>();
             Combos = MenuItems.OfType<CretaceousCombo>();
             Entrees = MenuItems.OfType<Entree>();
             Sides = MenuItems.OfType<Side>();
@@ -106,11 +92,11 @@ namespace Website.Pages
             }
 
             this.minPrice = minPrice;
-            MenuItems = MenuItems.Where(item => item.Price <= minPrice);
+            MenuItems = MenuItems.Where(item => item.Price >= minPrice);
 
 
             this.maxPrice = maxPrice;
-            MenuItems = MenuItems.Where(item => item.Price >= maxPrice);
+            MenuItems = MenuItems.Where(item => item.Price <= maxPrice);
 
             if (ingredients.Count > 0)
             {
