@@ -57,38 +57,13 @@ namespace Website.Pages
         {
             Menu = new Menu();
 
-            MenuItems = Menu.AvaliableMenuItems;
+            MenuItems = Menu.AvaliableMenuItems.OfType<IMenuItem>();
             Ingredients = Menu.PossibleIngredients;
 
             if (search != null)
             {
                 this.search = search;
                 MenuItems = MenuItems.OfType<IOrderItem>().Where(item => item.Description.ToLower().Contains(search.ToLower())).OfType<IMenuItem>();
-            }
-
-            if (category.Count > 0)
-            {
-                this.category = category;
-                IEnumerable<IMenuItem> menu = null;
-
-                if (category.Contains("Combo"))
-                {
-                    menu = MenuItems.OfType<CretaceousCombo>();
-                } 
-                if (category.Contains("Entree"))
-                {
-                    menu = MenuItems.OfType<Entree>();
-                }
-                if (category.Contains("Side"))
-                {
-                    menu = MenuItems.OfType<Side>();
-                } 
-                if (category.Contains("Drink"))
-                {
-                    menu = MenuItems.OfType<Drink>();
-                }
-
-                MenuItems = menu;
             }
 
             this.minPrice = minPrice;
@@ -107,11 +82,33 @@ namespace Website.Pages
                 }
             }
 
-            MenuItems = Menu.AvaliableMenuItems.OfType<IMenuItem>();
-            Combos = MenuItems.OfType<CretaceousCombo>();
-            Entrees = MenuItems.OfType<Entree>();
-            Sides = MenuItems.OfType<Side>();
-            Drinks = MenuItems.OfType<Drink>();
+            if (category.Count > 0)
+            {
+                this.category = category;
+                if (category.Contains("Combo"))
+                {
+                    Combos = MenuItems.OfType<CretaceousCombo>();
+                }
+                if (category.Contains("Entree"))
+                {
+                    Entrees = MenuItems.OfType<Entree>();
+                }
+                if (category.Contains("Side"))
+                {
+                    Sides = MenuItems.OfType<Side>();
+                }
+                if (category.Contains("Drink"))
+                {
+                    Drinks = MenuItems.OfType<Drink>();
+                }
+            }
+            else
+            {
+                Combos = MenuItems.OfType<CretaceousCombo>();
+                Entrees = MenuItems.OfType<Entree>();
+                Sides = MenuItems.OfType<Side>();
+                Drinks = MenuItems.OfType<Drink>();
+            }
         }
     }
 }
